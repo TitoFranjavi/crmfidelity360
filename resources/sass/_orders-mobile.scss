@@ -1,0 +1,1538 @@
+// =============================================
+// CSS MÓVIL ESPECÍFICO PARA CONTRATOS
+// Duplicado del CSS general para poder modificar
+// la vista móvil de contratos sin tocar la parte de PC.
+// =============================================
+// Clases usadas en DesktopComponent.vue -> <div class="mobile-item">
+// Este archivo se importa desde app.scss, por lo que $colorsApp
+// y las funciones de sass (map.get, etc.) ya están disponibles.
+
+@media (max-width: 810px) {
+
+    .content-white {
+
+        .mobile-item {
+            padding: 0 12px;
+
+            // ================================================
+            // TÍTULO "Contratos" + botón crear
+            // ================================================
+            > .sticky-header-mobile > .d-flex.justify-between {
+                margin: 12px 0 6px;
+                .text {
+                    font-size: 24px !important;
+                    color: map.get($colorsApp, principal);
+                }
+
+                .mobile-create-btn {
+                    border-radius: 12px;
+                    min-width: 42px;
+                    min-height: 42px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            // ================================================
+            // DROPDOWN CREAR CONTRATO (mobile)
+            // ================================================
+            > .sticky-header-mobile > .mobile-create-dropdown {
+                background: white;
+                border: 1px solid map.get($colorsApp, principalOpacidad);
+                border-radius: 16px;
+                padding: 16px;
+                margin: 8px 0;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+
+                .mobile-create-option {
+                    padding: 14px 16px;
+                    border-radius: 12px;
+                    font-size: 15px !important;
+                    font-weight: 500;
+                    color: map.get($colorsApp, principal);
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    border: 1px solid map.get($colorsApp, principalOpacidad);
+                    margin-bottom: 8px;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    &:active {
+                        background: map.get($colorsApp, gris-principal);
+                    }
+
+                    i {
+                        color: map.get($colorsApp, principal);
+                        font-size: 16px;
+                    }
+                }
+
+                .mobile-create-account-search {
+
+                    .mobile-create-search-title {
+                        font-size: 16px !important;
+                        font-weight: 700;
+                        color: map.get($colorsApp, principal);
+                        margin-bottom: 12px;
+                        display: flex;
+                        align-items: center;
+
+                        i {
+                            color: map.get($colorsApp, principal);
+                            font-size: 15px;
+                        }
+                    }
+
+                    .form-group {
+                        margin-bottom: 12px;
+
+                        .input-group {
+                            display: flex;
+                            align-items: center;
+                            padding: 12px 16px;
+                            border-radius: 14px;
+                            border: 2px solid map.get($colorsApp, principal);
+                            background: map.get($colorsApp, gris-principal);
+                            min-height: 50px;
+                            gap: 10px;
+
+                            i {
+                                color: map.get($colorsApp, principal);
+                                font-size: 15px;
+                                flex-shrink: 0;
+                            }
+
+                            input {
+                                font-size: 15px !important;
+                                border: none;
+                                background: transparent;
+                                outline: none;
+                                width: 100%;
+                                color: map.get($colorsApp, principal);
+                                font-weight: 500;
+
+                                &::placeholder {
+                                    color: map.get($colorsApp, gris-oscuro);
+                                    font-weight: 400;
+                                }
+                            }
+                        }
+                    }
+
+                    .mobile-create-account-list {
+                        max-height: 45vh;
+                        overflow-y: auto;
+                        -webkit-overflow-scrolling: touch;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 6px;
+                    }
+
+                    .mobile-create-account-item {
+                        padding: 14px 16px;
+                        border-radius: 12px;
+                        font-size: 14px !important;
+                        color: map.get($colorsApp, principal);
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        background: map.get($colorsApp, gris-principal);
+                        border: 1px solid map.get($colorsApp, principalOpacidad);
+
+                        &:active {
+                            background: map.get($colorsApp, azul-claro);
+                            border-color: map.get($colorsApp, principal);
+                        }
+
+                        .mobile-create-account-icon {
+                            width: 36px;
+                            height: 36px;
+                            min-width: 36px;
+                            border-radius: 10px;
+                            background: white;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin-right: 12px;
+                            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+                            i {
+                                font-size: 14px;
+                                color: map.get($colorsApp, principal);
+                            }
+                        }
+
+                        span {
+                            flex: 1;
+                            font-weight: 500;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+
+                        .mobile-create-account-arrow {
+                            font-size: 12px;
+                            color: map.get($colorsApp, gris-oscuro);
+                            margin-left: 8px;
+                        }
+                    }
+
+                    .mobile-create-back {
+                        margin-top: 10px;
+                        padding: 12px 16px;
+                        border-radius: 12px;
+                        background: map.get($colorsApp, azul-claro);
+                        text-align: center;
+                        font-size: 14px !important;
+                        font-weight: 600;
+                        color: map.get($colorsApp, principal);
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+
+                .mobile-create-close {
+                    margin-top: 8px;
+                    padding: 12px 16px;
+                    border-radius: 12px;
+                    background: map.get($colorsApp, gris-principal);
+                    text-align: center;
+                    font-size: 14px !important;
+                    font-weight: 600;
+                    color: map.get($colorsApp, principal);
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            // ================================================
+            // RESUMEN (contratos, consumo, comisiones)
+            // ================================================
+            > .d-flex.column.mb-10 {
+                background: linear-gradient(135deg, map.get($colorsApp, gris-principal) 0%, map.get($colorsApp, azul-claro) 100%);
+                border-radius: 16px;
+                padding: 18px !important;
+                margin-bottom: 14px !important;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+                gap: 8px;
+
+                > .text.d-flex.align-center {
+                    padding: 8px 0;
+
+                    p {
+                        font-size: 14px !important;
+                        color: map.get($colorsApp, principal);
+                    }
+
+                    span {
+                        font-size: 16px !important;
+                    }
+
+                    .icon {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 36px;
+                        height: 36px;
+                        min-width: 36px;
+                        background: white;
+                        border-radius: 10px;
+                        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+                        i {
+                            font-size: 15px;
+                            color: map.get($colorsApp, principal);
+                        }
+                    }
+                }
+            }
+
+            // ================================================
+            // FILTROS APLICADOS (banner + info)
+            // ================================================
+            > .mobile-filters-applied {
+                background: #fff5f5;
+                border: 1px solid rgba(220, 53, 69, 0.2);
+                border-radius: 16px;
+                padding: 16px 18px;
+                gap: 10px;
+
+                > .d-flex.align-center.justify-between {
+                    gap: 12px;
+
+                    > .d-flex.align-center {
+                        gap: 8px;
+
+                        i {
+                            font-size: 16px;
+                        }
+
+                        p.text {
+                            font-size: 15px !important;
+                        }
+                    }
+
+                    .custom-button {
+                        border-radius: 12px;
+                        font-size: 13px !important;
+                        min-height: 40px;
+                        padding: 8px 16px;
+                        white-space: nowrap;
+                    }
+                }
+
+                .mobile-filters-info-toggle {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 10px 14px;
+                    background: rgba(220, 53, 69, 0.06);
+                    border-radius: 10px;
+                    user-select: none;
+                    gap: 6px;
+
+                    .text {
+                        color: rgba(220, 53, 69, 0.8);
+                        font-size: 14px !important;
+                    }
+
+                    i {
+                        color: rgba(220, 53, 69, 0.8);
+                        font-size: 12px;
+                    }
+                }
+
+                .mobile-filters-info {
+                    background: white;
+                    border-radius: 14px;
+                    padding: 14px 16px;
+                    border: 1px solid rgba(220, 53, 69, 0.1);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 14px;
+
+                    .filter-detail-item {
+                        padding-bottom: 14px;
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+                        &:last-child {
+                            padding-bottom: 0;
+                            border-bottom: none;
+                        }
+                    }
+
+                    .filter-detail-label {
+                        font-size: 13px !important;
+                        font-weight: 700 !important;
+                        color: map.get($colorsApp, principal);
+                        margin-bottom: 8px;
+                    }
+
+                    .filter-detail-values {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 8px;
+                    }
+
+                    .filter-chip {
+                        display: inline-flex;
+                        align-items: center;
+                        padding: 6px 14px;
+                        background: map.get($colorsApp, gris-principal);
+                        border: 1px solid map.get($colorsApp, principalOpacidad);
+                        border-radius: 20px;
+                        font-size: 13px !important;
+                        color: map.get($colorsApp, principal);
+                        font-weight: 500;
+                        line-height: 1.4;
+                        white-space: nowrap;
+                    }
+                }
+            }
+
+            // ================================================
+            // BARRA DE BÚSQUEDA (dentro de sticky-header-mobile)
+            // ================================================
+            > .sticky-header-mobile > .d-flex {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .search-bar {
+                    flex: 1 1 auto;
+                    min-width: 0;
+                    display: flex;
+                    align-items: center;
+                    padding: 12px 16px;
+                    border: 2px solid map.get($colorsApp, principal);
+                    border-radius: 14px;
+                    background-color: map.get($colorsApp, gris-principal);
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+                    i {
+                        color: map.get($colorsApp, principal);
+                        font-size: 16px;
+                    }
+
+                    input {
+                        border: none;
+                        width: 100%;
+                        background-color: transparent;
+                        margin-left: 12px;
+                        color: map.get($colorsApp, principal);
+                        font-weight: 500;
+                        font-size: 15px !important;
+                        outline: none;
+
+                        &::placeholder {
+                            color: map.get($colorsApp, gris-oscuro);
+                            font-weight: 400;
+                        }
+                    }
+                }
+
+                > i.fa-trash {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 !important;
+                    min-width: 46px;
+                    width: 46px;
+                    height: 46px;
+                    font-size: 14px;
+                    border-radius: 12px;
+                    background-color: map.get($colorsApp, gris-principal);
+                    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+                }
+            }
+
+            // ================================================
+            // FILTROS - estilo mobile-friendly
+            // ================================================
+            > .d-flex.column.my-20 {
+                margin: 8px 0 !important;
+
+                // Botón "Mostrar/Ocultar filtros"
+                > p.text {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 12px 16px;
+                    background: map.get($colorsApp, principal);
+                    color: white;
+                    border-radius: 12px;
+                    font-size: 14px !important;
+                    font-weight: 600;
+                    min-height: 46px;
+                    cursor: pointer;
+                    user-select: none;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+
+                    &::before {
+                        content: "\f0b0"; // fa-filter
+                        font-family: "Font Awesome 6 Pro", "Font Awesome 6 Free", "Font Awesome 5 Pro", "Font Awesome 5 Free";
+                        font-weight: 900;
+                        margin-right: 8px;
+                        font-size: 13px;
+                    }
+                }
+
+                // Flecha decorativa
+                > .arrow-border {
+                    display: none !important;
+                }
+
+                // Panel de filtros abierto
+                > div:not(.arrow-border) {
+                    background: white;
+                    border: 1px solid map.get($colorsApp, principalOpacidad);
+                    border-radius: 0 0 16px 16px;
+                    padding: 8px 0;
+                    margin-top: -4px;
+                    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+                    // Cada fila de filtro
+                    > .d-flex.justify-between {
+                        padding: 12px 16px;
+                        min-height: 48px;
+                        align-items: center;
+                        border-bottom: 1px solid rgba(0, 35, 72, 0.05);
+
+                        &:last-of-type {
+                            border-bottom: none;
+                        }
+
+                        // Nombre del filtro
+                        > .text {
+                            font-size: 14px !important;
+                            font-weight: 600;
+                            white-space: nowrap;
+                            color: map.get($colorsApp, principal);
+                            min-width: 100px;
+                        }
+                    }
+
+                    .custom-select {
+                        position: relative;
+
+                        // Trigger del select
+                        > .ml-10 {
+                            display: flex;
+                            align-items: center;
+                            padding: 8px 14px;
+                            background: map.get($colorsApp, gris-principal);
+                            border-radius: 10px;
+                            font-size: 13px !important;
+                            min-height: 38px;
+                            border: 1px solid map.get($colorsApp, principalOpacidad);
+
+                            i {
+                                margin-left: 8px !important;
+                                font-size: 11px;
+                            }
+                        }
+
+                        .select-content {
+                            position: fixed !important;
+                            top: auto !important;
+                            bottom: 0 !important;
+                            left: 0 !important;
+                            right: 0 !important;
+                            width: 100vw !important;
+                            max-width: 100vw !important;
+                            max-height: 60vh;
+                            overflow-y: auto;
+                            border-radius: 20px 20px 0 0;
+                            padding: 16px;
+                            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.2);
+                            background: white;
+                            z-index: 1000;
+
+                            > .d-flex.align-center {
+                                padding: 12px 8px;
+                                min-height: 46px;
+                                border-radius: 10px;
+                                margin-bottom: 2px;
+
+                                &:active {
+                                    background: map.get($colorsApp, azul-claro);
+                                }
+
+                                .text {
+                                    font-size: 15px !important;
+                                }
+                            }
+
+                            &.form {
+                                width: 100vw !important;
+                                max-width: 100vw !important;
+                                padding: 20px 16px;
+
+                                .form-group {
+                                    margin-bottom: 12px;
+
+                                    .text, p {
+                                        font-size: 14px !important;
+                                        min-width: 60px;
+                                    }
+
+                                    .input-group {
+                                        flex: 1;
+                                    }
+
+                                    input[type="date"] {
+                                        font-size: 14px;
+                                        min-height: 42px;
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .custom-checkbox {
+                        width: 20px;
+                        height: 20px;
+                        min-width: 20px;
+                        min-height: 20px;
+                        border-radius: 6px;
+                        border: 2px solid map.get($colorsApp, principal);
+
+                        &.selected {
+                            background-color: map.get($colorsApp, principal);
+                        }
+                    }
+
+                    .separator {
+                        margin: 4px 16px 0;
+                    }
+                }
+            }
+
+            // ================================================
+            // LISTADO DE CONTRATOS (cards)
+            // ================================================
+            > div:last-of-type {
+
+                > .d-flex.column {
+                    gap: 6px;
+
+                    > .my-5 {
+                        margin: 0 !important;
+
+                        // Cabecera del contrato
+                        > .d-flex.align-center.pointer {
+                            background: white;
+                            border: 1px solid map.get($colorsApp, principalOpacidad);
+                            border-radius: 14px;
+                            padding: 16px 18px;
+                            min-height: 56px;
+                            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+
+                            > .text.ellipsis {
+                                font-size: 15px !important;
+                                flex: 1;
+                                min-width: 0;
+                                font-weight: 500;
+                            }
+
+                            .deploy-btn {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 38px;
+                                height: 38px;
+                                min-width: 38px;
+                                border-radius: 12px;
+                                background: map.get($colorsApp, gris-principal);
+                                color: map.get($colorsApp, principal);
+
+                                &.selected {
+                                    background: map.get($colorsApp, principal);
+                                    color: white;
+                                }
+
+                                i { font-size: 12px; }
+                            }
+                        }
+
+                        // Info expandida del contrato
+                        > .d-flex.column {
+                            background: map.get($colorsApp, gris-claro);
+                            border-radius: 0 0 14px 14px;
+                            margin-top: -10px;
+                            padding: 22px 18px 16px;
+                            border: 1px solid map.get($colorsApp, principalOpacidad);
+                            border-top: none;
+
+                            > .my-10 {
+                                margin: 6px 0 !important;
+
+                                > .d-flex.justify-between {
+                                    padding: 8px 0;
+                                    min-height: 40px;
+                                    align-items: center;
+                                    gap: 10px;
+
+                                    // Etiqueta
+                                    > .text:first-child {
+                                        color: map.get($colorsApp, principal);
+                                        white-space: nowrap;
+                                        flex-shrink: 0;
+                                        font-size: 13px !important;
+                                        font-weight: 600;
+                                    }
+
+                                    // Valor
+                                    > .text:last-child {
+                                        text-align: right;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        min-width: 0;
+                                        font-size: 14px !important;
+                                    }
+
+                                    > .custom-button {
+                                        text-align: right;
+                                        flex-shrink: 0;
+                                    }
+                                }
+                            }
+
+                            // Botones (ver + eliminar)
+                            > .d-flex.column[data-gap] {
+                                margin-top: 12px;
+
+                                .custom-button {
+                                    border-radius: 14px;
+                                    padding: 14px 18px;
+                                    font-size: 14px !important;
+                                    min-height: 48px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    gap: 6px;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+
+                        // Separador entre contratos
+                        > .separator {
+                            height: 0;
+                            margin: 4px 0;
+                            background: none;
+                        }
+                    }
+                }
+
+
+                // Mensaje "no hay contratos"
+                > .text.opacity-5 {
+                    padding: 40px 20px;
+                    font-size: 15px !important;
+                    color: map.get($colorsApp, gris-oscuro);
+                }
+            }
+
+        }
+    }
+
+    // ========================================================
+    // DETALLE DE CONTRATO (OrderDetailsItemComponent)
+    // .floating-box > .register-pos > .top-part > .inputs-part
+    // ========================================================
+    .floating-box {
+        position: fixed !important;
+        top: 8vh;
+        left: 0 !important;
+        width: 100vw !important;
+        height: calc(100vh - 8vh);
+        transform: none;
+        z-index: 999 !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        background-color: #ffffff !important;
+
+        .register-pos {
+            padding: 16px 0 !important;
+            border-radius: 0 !important;
+            width: 100% !important;
+            height: auto !important;
+            min-height: 100%;
+            background-color: #ffffff !important;
+            opacity: 1 !important;
+
+            // ---- Top part: datos + producto en columna ----
+            .top-part {
+                display: flex !important;
+                flex-direction: column !important;
+                height: auto !important;
+                min-height: unset !important;
+                gap: 0;
+                padding-bottom: 120px;
+                overflow: visible !important;
+
+                // Separador vertical entre paneles -> ocultarlo en móvil
+                > .separator[data-position="vertical"] {
+                    display: none !important;
+                }
+
+                // Cada panel de inputs (datos básicos, producto)
+                .inputs-part {
+                    width: 100% !important;
+                    height: auto !important;
+                    max-height: unset !important;
+                    padding: 0 16px 16px !important;
+                    overflow-y: visible !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+
+                    // ---- Header "Datos básicos" + checkboxes ----
+                    > .d-flex.justify-between:first-child {
+                        flex-wrap: wrap;
+                        gap: 10px;
+                        padding: 16px 0 12px;
+                        margin-bottom: 12px;
+                        border-bottom: 2px solid map.get($colorsApp, principalOpacidad);
+
+                        // Título "Datos básicos" / "Producto"
+                        > .text {
+                            width: 100%;
+                            font-size: 20px !important;
+                            font-weight: 700 !important;
+                            color: map.get($colorsApp, principal);
+                            margin-bottom: 6px;
+                        }
+
+                        // Grupo "Recordatorio renovación"
+                        > .d-flex.align-center {
+                            flex-wrap: wrap;
+                            gap: 8px;
+                            background: map.get($colorsApp, gris-principal);
+                            padding: 10px 14px;
+                            border-radius: 12px;
+                            width: 100%;
+
+                            .custom-checkbox {
+                                width: 18px;
+                                height: 18px;
+                                min-width: 18px;
+                                min-height: 18px;
+
+                                .selected {
+                                    width: 16px;
+                                    height: 15px;
+                                }
+                            }
+
+                            > p.text {
+                                font-size: 13px !important;
+                                font-weight: 500;
+                            }
+
+                            // Select de recordatorio
+                            .input-group {
+                                width: 100%;
+                                margin-left: 0 !important;
+                                margin-top: 4px;
+                                border-radius: 10px;
+                                border: 1px solid map.get($colorsApp, principalOpacidad);
+                                background: white;
+                                padding: 8px 12px;
+
+                                select {
+                                    font-size: 13px !important;
+                                    padding: 6px 0;
+                                    min-height: 36px;
+                                }
+                            }
+                        }
+
+                        // Grupo "Borrador"
+                        > .d-flex:last-child {
+                            background: map.get($colorsApp, gris-principal);
+                            padding: 10px 14px;
+                            border-radius: 12px;
+
+                            .custom-checkbox {
+                                width: 18px;
+                                height: 18px;
+                                min-width: 18px;
+                                min-height: 18px;
+
+                                .selected {
+                                    width: 16px;
+                                    height: 15px;
+                                }
+                            }
+
+                            p.text {
+                                font-size: 13px !important;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+
+                    // Botón "Copiar datos de la cuenta"
+                    > .text.pointer {
+                        background: map.get($colorsApp, gris-principal);
+                        padding: 10px 16px;
+                        border-radius: 12px;
+                        font-size: 13px !important;
+                        margin-bottom: 8px;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 6px;
+                    }
+
+                    // ---- Formularios (form-group) ----
+                    .form-group {
+                        margin: 14px 0 !important;
+
+                        label {
+                            font-size: 13px !important;
+                            margin-bottom: 6px;
+                            display: inline;
+                            color: map.get($colorsApp, principal);
+                        }
+
+                        p {
+                            font-size: 13px !important;
+                            display: flex;
+                            align-items: center;
+                            gap: 4px;
+                            color: map.get($colorsApp, principal);
+                        }
+
+                        .input-group {
+                            padding: 12px 16px;
+                            border-radius: 14px;
+                            min-height: 50px;
+                            border: 1px solid map.get($colorsApp, principalOpacidad);
+                            background: white;
+
+                            input, select, textarea {
+                                font-size: 15px !important;
+                            }
+
+                            textarea {
+                                min-height: 80px;
+                            }
+                        }
+
+                        .error {
+                            font-size: 12px;
+                            margin-top: 4px;
+                            display: block;
+                        }
+                    }
+
+                    // ---- Grids: apilar verticalmente en móvil ----
+                    .d-grid[data-column="2"],
+                    .d-grid[data-column="3"],
+                    .d-grid[data-column="4"] {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        gap: 0 !important;
+
+                        > * {
+                            width: 100% !important;
+                        }
+                    }
+
+                    // ---- Separadores internos ----
+                    > .separator {
+                        margin: 16px 0 !important;
+                    }
+
+                    // ---- Subsección "Fuente de la venta" custom-select ----
+                    .custom-select {
+                        margin: 14px 0;
+
+                        .select-title {
+                            font-size: 13px !important;
+                            color: map.get($colorsApp, principal);
+                            margin-bottom: 6px;
+                        }
+                    }
+
+                    // ---- d-flex dentro de inputs (verificaciones, etc.) ----
+                    > .d-flex.f-wrap,
+                    .d-flex.f-wrap {
+                        gap: 4px 12px;
+                    }
+
+                    // ---- Producto (segunda columna) ----
+                    .product {
+                        order: 20;
+                        overflow-y: visible !important;
+                        padding-top: 8px;
+                        border-top: 2px solid map.get($colorsApp, principalOpacidad);
+                        margin-top: 16px;
+
+                        // Header "Producto" + versiones
+                        > .d-flex.justify-between.align-center {
+                            flex-wrap: wrap;
+                            gap: 8px;
+                            padding-bottom: 12px;
+                            margin-bottom: 8px;
+
+                            > .text {
+                                font-size: 20px !important;
+                                font-weight: 700 !important;
+                                color: map.get($colorsApp, principal);
+                                width: 100%;
+                            }
+
+                            .input-group {
+                                border-radius: 10px;
+                                border: 1px solid map.get($colorsApp, principalOpacidad);
+                                background: white;
+                                padding: 6px 12px;
+
+                                select {
+                                    min-height: 38px;
+                                    font-size: 13px !important;
+                                }
+                            }
+
+                            // Fecha de traspaso
+                            > .text.opacity-6 {
+                                font-size: 12px !important;
+                                background: map.get($colorsApp, gris-principal);
+                                padding: 6px 12px;
+                                border-radius: 8px;
+                            }
+                        }
+
+                        // Sección "Tramitar con otro"
+                        > .d-flex.justify-between {
+                            background: map.get($colorsApp, gris-principal);
+                            padding: 12px 14px;
+                            border-radius: 12px;
+                            margin: 8px 0;
+                        }
+
+                        // Labels "Luz" / "Gas"
+                        > .text[data-size="18"],
+                        > div > .text[data-size="18"] {
+                            font-size: 16px !important;
+                            font-weight: 600 !important;
+                            color: map.get($colorsApp, principal);
+                            padding: 12px 0 6px;
+                            margin: 12px 0 4px !important;
+                            border-bottom: 1px solid map.get($colorsApp, principalOpacidad);
+                        }
+
+                        // Desglose de consumos/potencias
+                        .d-flex.justify-around {
+                            flex-wrap: wrap;
+                            gap: 8px;
+
+                            .form-group {
+                                flex: 1;
+                                min-width: 80px;
+                            }
+                        }
+
+                        // Opacidad labels "Desglose de consumos"
+                        .opacity-5.text {
+                            font-size: 13px !important;
+                            font-weight: 600;
+                            color: map.get($colorsApp, principal);
+                            margin: 16px 0 4px;
+                        }
+
+                        // Productos extras
+                        > .form-group > .input-group.column {
+                            border-radius: 14px;
+                            border: 1px solid map.get($colorsApp, principalOpacidad);
+                            padding: 12px 16px;
+
+                            .separator {
+                                margin: 6px 0 !important;
+                            }
+                        }
+
+                        // Verificaciones de contrato label
+                        > div > label {
+                            font-size: 14px !important;
+                            font-weight: 600;
+                            color: map.get($colorsApp, principal);
+                            display: block;
+                            margin: 16px 0 8px;
+                            padding-bottom: 6px;
+                            border-bottom: 1px solid map.get($colorsApp, principalOpacidad);
+                        }
+
+                        // Verificaciones checkboxes
+                        .d-flex.my-5.d-wrap {
+                            background: map.get($colorsApp, gris-principal);
+                            padding: 8px 12px;
+                            border-radius: 10px;
+                            margin: 4px 0 !important;
+                        }
+
+                        // Comisiones section
+                        > .d-flex.justify-between:not(:first-child) {
+                            flex-wrap: wrap;
+                            gap: 8px;
+                        }
+                    }
+
+                    // ---- Sección propietarios del contrato ----
+                    .owners-section {
+                        order: 99;
+                        margin-top: 24px !important;
+                        padding-top: 16px;
+                        border-top: 2px solid map.get($colorsApp, principalOpacidad);
+
+                        // Botón toggle (solo visible en móvil)
+                        .owners-toggle {
+                            padding: 14px 0;
+                            cursor: pointer;
+
+                            .d-flex {
+                                i {
+                                    font-size: 14px;
+                                    color: map.get($colorsApp, principal);
+                                    transition: transform 0.2s ease;
+                                }
+                            }
+
+                            .text {
+                                color: map.get($colorsApp, principal);
+                                font-size: 15px !important;
+                            }
+                        }
+
+                        // Lista desplegable de usuarios
+                        .owners-list-mobile {
+                            padding-top: 12px;
+
+                            .user-list {
+                                grid-template-columns: repeat(1, 1fr) !important;
+                                gap: 8px;
+                            }
+                        }
+                    }
+
+                    // ---- Documentos adjuntos overlay ----
+                    .docs {
+                        position: fixed !important;
+                        top: 5%;
+                        left: 3%;
+                        width: 94% !important;
+                        max-height: 90vh !important;
+                        transform: none;
+                        border-radius: 20px !important;
+                        padding: 20px !important;
+                        z-index: 100;
+                        overflow-y: auto;
+                    }
+                }
+            }
+
+            // ---- Separator antes de los botones ----
+            > .separator {
+                margin: 8px 16px !important;
+            }
+
+            // ---- Barra de botones inferior (Ver histórico, Documentos | Volver, Editar) ----
+            > .d-flex.justify-between {
+                flex-direction: column !important;
+                gap: 10px;
+                padding: 12px 16px;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 50;
+                background: white;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+                border-top: 1px solid map.get($colorsApp, principalOpacidad);
+
+                // Grupo izquierdo (Ver histórico, Documentos)
+                > div:first-child {
+                    display: flex;
+                    gap: 8px;
+                    width: 100%;
+
+                    .custom-button {
+                        flex: 1;
+                        min-height: 46px;
+                        border-radius: 12px;
+                        font-size: 13px !important;
+                        padding: 10px 12px;
+                        margin-right: 0 !important;
+                        text-align: center;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        white-space: nowrap;
+                    }
+                }
+
+                // Grupo derecho (Volver, Editar / Cancelar, Guardar)
+                .btn-part {
+                    height: auto !important;
+                    width: 100%;
+
+                    > div {
+                        display: flex;
+                        gap: 8px;
+                        width: 100%;
+
+                        .custom-button {
+                            flex: 1;
+                            min-height: 46px;
+                            border-radius: 12px;
+                            font-size: 13px !important;
+                            padding: 10px 12px;
+                            margin-right: 0 !important;
+                            text-align: center;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // ========================================================
+    // HISTÓRICO (floating-box.z-11 overlay)
+    // ========================================================
+    .floating-box.z-11 {
+        z-index: 10000 !important;
+
+            .register-pos {
+                width: 100% !important;
+                height: 100% !important;
+                padding: 16px !important;
+                border-radius: 0 !important;
+                border: none !important;
+
+                > .d-flex.column {
+                    height: 100%;
+
+                    // Header: título + botones Estados/Mensajes + X
+                    > .d-flex.justify-between:first-child {
+                        flex-wrap: wrap;
+                        gap: 8px;
+
+                        > .d-flex[data-gap] {
+                            flex-wrap: wrap;
+                            gap: 8px;
+                            width: 100%;
+
+                            > .text {
+                                margin-right: auto !important;
+                                font-size: 18px !important;
+                            }
+
+                            .custom-button {
+                                font-size: 12px !important;
+                                padding: 6px 12px;
+                            }
+                        }
+                    }
+
+                    // Chat messages area
+                    .scroll-y {
+                        flex: 1;
+                        overflow-y: auto;
+                        -webkit-overflow-scrolling: touch;
+
+                        .dashboard-card {
+                            width: 85% !important;
+                            max-width: 85% !important;
+                        }
+                    }
+
+                    // Input de nuevo mensaje
+                    > form .dashboard-card {
+                        padding: 8px 12px;
+                        border-radius: 12px;
+                    }
+                }
+            }
+        }
+
+    html:has(.content-white .floating-box),
+        body:has(.content-white .floating-box),
+        .content-principal.app-page:has(.content-white .floating-box),
+        .content-white:has(.floating-box) {
+            overflow: hidden !important;
+        }
+
+        .content-principal.app-page:has(.content-white .floating-box) .mobile-item,
+        .content-principal.app-page:has(.content-white .floating-box) .content-white {
+    overflow: hidden !important;
+}
+
+    }
+
+    // ================================================
+    // MENÚ LATERAL MÓVIL (nav-bar)
+    // ================================================
+@media (max-width: 810px) {
+    .nav-bar {
+        background-color: white;
+        padding: 30px 30px 40px;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+
+        .profile-top {
+            margin-bottom: 16px;
+
+            img {
+                border: 2px solid map.get($colorsApp, principalOpacidad);
+            }
+
+            .text {
+                color: map.get($colorsApp, principal) !important;
+            }
+
+            .opacity-6 {
+                opacity: 0.7 !important;
+                color: map.get($colorsApp, gris-oscuro) !important;
+            }
+        }
+
+        .separator {
+            background-color: map.get($colorsApp, principalOpacidad) !important;
+            margin-bottom: 12px;
+        }
+
+        .routes-links {
+            gap: 2px;
+            overflow-y: auto;
+
+            .link {
+                opacity: 0.6 !important;
+                color: map.get($colorsApp, principal) !important;
+                padding: 10px 12px;
+                border-radius: 12px;
+                margin: 2px 0 !important;
+                transition: background 0.2s, opacity 0.2s;
+
+                i {
+                    font-size: 16px !important;
+                    color: map.get($colorsApp, gris-oscuro);
+                    width: 28px;
+                    text-align: center;
+                }
+
+                .text {
+                    font-size: 16px !important;
+                    color: map.get($colorsApp, principal) !important;
+                }
+
+                &.selected {
+                    opacity: 1 !important;
+                    background: map.get($colorsApp, azul-claro);
+
+                    i {
+                        color: map.get($colorsApp, principal) !important;
+                    }
+
+                    .text {
+                        color: map.get($colorsApp, principal) !important;
+                        font-weight: 700 !important;
+                    }
+                }
+            }
+        }
+
+        .mobile-bars {
+            i {
+                color: map.get($colorsApp, principal) !important;
+            }
+        }
+    }
+}@media (max-width: 810px) {
+  .content-principal.app-page:has(.floating-box) {
+    overflow: hidden !important;
+  }
+
+  .content-principal.app-page:has(.floating-box) .mobile-item,
+  .content-principal.app-page:has(.floating-box) .content-white {
+    overflow: hidden !important;
+  }
+
+  .content-principal.app-page:has(.floating-box) .floating-box {
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .content-principal.app-page:has(.floating-box) .floating-box .register-pos {
+    height: 100% !important;
+  }
+
+  .content-principal.app-page:has(.floating-box) .floating-box .register-pos .top-part .inputs-part {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .content-principal.app-page:has(.floating-box) .floating-box .register-pos .top-part .inputs-part .owners-section {
+    order: 999 !important;
+    margin-top: 24px !important;
+  }
+
+  .content-principal.app-page:has(.floating-box) .floating-box .register-pos .top-part .inputs-part .product > .text[data-size="18"],
+  .content-principal.app-page:has(.floating-box) .floating-box .register-pos .top-part .inputs-part .product .ellipsis,
+  .content-principal.app-page:has(.floating-box) .floating-box .register-pos .top-part .inputs-part .product .input-group select,
+  .content-principal.app-page:has(.floating-box) .floating-box .register-pos .top-part .inputs-part .product .input-group input {
+    white-space: nowrap !important;
+  }
+
+@media (max-width: 810px) {
+  .mobile-item.contract-mobile > .content-white {
+    /* buscador + papelera */
+    > .sticky-header-mobile > .d-flex {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+
+      > .search-bar {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+      }
+
+      > i.fa-trash {
+        margin: 0 !important;
+        min-width: 46px !important;
+        width: 46px !important;
+        height: 46px !important;
+        padding: 0 !important;
+        border-radius: 12px !important;
+        background: map.get($colorsApp, gris-principal) !important;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06) !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+    }
+  }
+}
+}
+
+@media (max-width: 810px) {
+  html.contract-detail-open,
+  body.contract-detail-open,
+  .content-principal.contract-detail-open,
+  .content-white.contract-detail-open {
+    overflow: hidden !important;
+    height: 100% !important;
+  }
+
+  .content-white.contract-detail-open .floating-box {
+    position: fixed !important;
+    top: 8vh !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: calc(100vh - 8vh) !important;
+    max-height: calc(100vh - 8vh) !important;
+    transform: none;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    z-index: 1000 !important;
+    background: #fff !important;
+    box-sizing: border-box !important;
+  }
+
+  .content-white.contract-detail-open .floating-box .register-pos {
+    background: #fff !important;
+    opacity: 1 !important;
+    min-height: 100% !important;
+  }
+
+  .content-white.contract-detail-open .floating-box .top-part {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    padding-bottom: 120px !important;
+  }
+
+  .content-white.contract-detail-open .floating-box .top-part > .separator[data-position="vertical"] {
+    display: none !important;
+  }
+
+  .content-white.contract-detail-open .floating-box .inputs-part {
+    width: 100% !important;
+    max-height: unset !important;
+    overflow: visible !important;
+  }
+
+  .content-white.contract-detail-open .floating-box .inputs-part.px-100.d-flex.column .owners-section {
+    margin-top: 24px !important;
+    padding-top: 16px !important;
+    border-top: 2px solid map.get($colorsApp, principalOpacidad) !important;
+  }
+
+  .content-white.contract-detail-open .floating-box .inputs-part.px-100.d-flex.column .product {
+    margin-top: 0 !important;
+  }
+
+  .content-white.contract-detail-open .mobile-item,
+  .content-white.contract-detail-open .sticky-header-mobile,
+  .content-principal.contract-detail-open {
+    overflow: hidden !important;
+  }
+}
+
+/* ========================================================
+   FIX DETALLE CONTRATO - MOVIL
+   ======================================================== */
+@media (max-width: 810px) {
+    html.contract-detail-open,
+    body.contract-detail-open,
+    .content-principal.contract-detail-open,
+    .content-white.contract-detail-open {
+        overflow: hidden !important;
+    }
+
+    .content-principal.contract-detail-open .mobile-item,
+    .content-principal.contract-detail-open .content-white {
+        overflow: hidden !important;
+    }
+
+    .content-white.contract-detail-open .floating-box {
+        position: fixed !important;
+        top: 8vh !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: calc(100vh - 8vh) !important;
+        transform: none;
+        z-index: 1000 !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        background: #ffffff !important;
+        opacity: 1 !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+    }
+
+    .content-white.contract-detail-open .floating-box .register-pos {
+        width: 100% !important;
+        min-height: 100% !important;
+        height: auto !important;
+        background: #ffffff !important;
+        opacity: 1 !important;
+        border-radius: 0 !important;
+    }
+
+    .content-white.contract-detail-open .floating-box .register-pos .top-part {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+        padding-bottom: 120px !important;
+    }
+
+    .content-white.contract-detail-open .floating-box .register-pos .top-part > .separator[data-position="vertical"] {
+        display: none !important;
+    }
+
+    .content-white.contract-detail-open .floating-box .register-pos .top-part .inputs-part {
+        width: 100% !important;
+        max-height: unset !important;
+        overflow: visible !important;
+    }
+
+    .content-white.contract-detail-open .floating-box .register-pos .top-part .inputs-part.px-100.d-flex.column .owners-section,
+    .content-white.contract-detail-open .floating-box .register-pos .top-part .inputs-part.d-flex.column .owners-section {
+        margin-top: 24px !important;
+        padding-top: 16px !important;
+        border-top: 2px solid map.get($colorsApp, principalOpacidad) !important;
+    }
+
+    .content-white.contract-detail-open .floating-box .register-pos .top-part .inputs-part.px-100.d-flex.column .product,
+    .content-white.contract-detail-open .floating-box .register-pos .top-part .inputs-part.d-flex.column .product {
+        margin-top: 0 !important;
+    }
+}

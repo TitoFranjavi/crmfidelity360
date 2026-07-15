@@ -1,0 +1,49 @@
+/node_modules
+/vendor
+/public/js
+/public/css
+/public/build
+/public/hot
+/public/assets/liquidations
+/public/mix-manifest.json
+/public/images/vendor
+/.idea
+**/.DS_Store
+
+# Google Cloud credentials
+drive_credentials/
+public/assets/profile_images/*.json
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Credenciales privadas de Google Cloud
+drive_credentials/
+public/assets/profile_images/*.json
+
+# Archivos y documentos subidos por usuarios
+public/assets/account_images/*
+public/assets/contact_images/*
+public/assets/emails/*
+public/assets/opportunity_images/*
+public/assets/order_files/*
+public/assets/profile_images/*
+public/assets/work_orders/*
+
+# Mantener archivos por defecto necesarios
+!public/assets/account_images/default.jpg
+!public/assets/contact_images/default.jpg
+!public/assets/opportunity_images/default.jpg
+!public/assets/profile_images/default.jpg
+
+# Archivos locales o sensibles
+.rnd
+storage/test.xlsx

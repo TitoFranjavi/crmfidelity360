@@ -1,0 +1,353 @@
+// =============================================
+// CSS MÓVIL ESPECÍFICO PARA HERRAMIENTAS
+// =============================================
+
+@media (max-width: 810px) {
+
+    /* all rules below only apply when the tools view is active */
+    .tools-mobile #content-white,
+    .tools-mobile {
+        /* Oculta los títulos de grupo de la vista de escritorio ("Utilidades", etc.) */
+        /* La vista móvil no usa <label> para los títulos de las herramientas. */
+        label[data-weight="600"] {
+            display: none !important;
+        }
+        /* also hide the whole desktop grid area */
+        .desktop-item {
+            display: none !important;
+        }
+    }
+
+    .tools-mobile {
+        padding: 0 10px !important;
+
+        /* Cabecera: centrar título + subtítulo + botón */
+        .d-flex.f-wrap.justify-between {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .d-flex.f-wrap.justify-between p.text[data-size="30"] {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 26px !important;
+            margin-top: 20px !important;
+            padding: 0 !important;
+        }
+
+        .d-flex.f-wrap.justify-between span.italic {
+            font-size: 18px !important;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            width: auto;
+            margin: 0 auto;
+            margin-top: -4px;
+            transform: translateX(-10px); /* más hacia la izquierda */
+        }
+
+        .d-flex.f-wrap.justify-between .custom-button {
+            width: 100%;
+            max-width: 260px;
+            margin-top: 14px; /* más separación del subtítulo */
+        }
+    }
+
+    // Grid de iconos (Menú principal de herramientas)
+    .tools-mobile .mobile-item {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 15px !important;
+        padding: 20px 15px !important;
+        width: 100%;
+
+        // Contenedor de cada herramienta
+        > .pointer {
+            transition: transform 0.2s;
+            background-color: map.get($colorsApp, 'gris-principal');
+            border-radius: 20px;
+            padding: 15px 10px;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
+            margin: 0 !important;
+
+            &:active {
+                transform: scale(0.95);
+            }
+
+            // Contenedor interno (icono + texto)
+            .d-flex.column {
+                gap: 10px !important;
+                justify-content: flex-start;
+                height: 100%;
+            }
+
+            // Icono de la herramienta
+            i {
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto;
+                width: 60px !important;
+                height: 60px !important;
+                min-height: 60px;
+                padding: 0 !important;
+            }
+
+            // Título de la herramienta
+            p.text-center {
+                color: map.get($colorsApp, principal);
+                line-height: 1.2;
+                margin-top: auto;
+                word-break: break-word;
+                white-space: normal; /* allow wrap instead of cutting */
+                word-wrap: break-word;
+                font-size: 10px !important; /* slightly smaller to help tight screens */
+                font-weight: 500;
+                padding-top: 5px;
+            }
+        }
+    }
+
+
+    // Monitorizacion Datadis (solo movil)
+    .tools-mobile .datadis-tool {
+        .floating-box .register-pos {
+            position: fixed !important;
+            left: 50% !important;
+            top: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            margin: 0 !important;
+            max-width: calc(100vw - 40px);
+            text-align: center;
+        }
+
+        .form > .d-flex.justify-between {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+        }
+
+        .form-group.w-250-px-min {
+            width: 100% !important;
+            min-width: 0 !important;
+        }
+
+        .form-group.w-250-px-min .input-group select {
+            width: 100%;
+        }
+
+        .custom-button.my-5.mobile-item {
+            align-self: stretch;
+            width: 100%;
+            min-width: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        .datadis-table.table-header {
+            display: none;
+        }
+
+        .datadis-table {
+            grid-template-columns: 1fr;
+            gap: 6px;
+            background: map.get($colorsApp, gris-principal);
+            border-radius: 14px;
+            padding: 12px;
+        }
+
+        .datadis-table > * {
+            min-width: 0;
+            white-space: normal;
+            overflow: visible;
+            text-overflow: clip;
+        }
+
+        .datadis-table > *:nth-child(1)::before,
+        .datadis-table > *:nth-child(2)::before,
+        .datadis-table > *:nth-child(3)::before,
+        .datadis-table > *:nth-child(4)::before,
+        .datadis-table > *:nth-child(5)::before {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            opacity: 0.65;
+            margin-bottom: 2px;
+            color: map.get($colorsApp, principal);
+        }
+
+        .datadis-table > *:nth-child(1)::before { content: "CUPS"; }
+        .datadis-table > *:nth-child(2)::before { content: "Provincia"; }
+        .datadis-table > *:nth-child(3)::before { content: "Localidad"; }
+        .datadis-table > *:nth-child(4)::before { content: "Direccion"; }
+        .datadis-table > *:nth-child(5)::before { content: "Codigo postal"; }
+
+        .datadis-table > *:nth-child(6) {
+            grid-column: 1 / -1;
+            justify-self: stretch;
+            width: 100%;
+            min-height: 42px;
+            margin-top: 8px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: map.get($colorsApp, principal);
+            color: map.get($colorsApp, blanco);
+        }
+
+        .datadis-table > *:nth-child(6) i {
+            font-size: 18px;
+        }
+
+        .datadis-table + .separator {
+            margin-top: 8px !important;
+            margin-bottom: 14px !important;
+        }
+
+        > div > .d-flex.justify-between {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        > div > .d-flex.justify-between > .d-flex.align-center {
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        > div > .d-flex.justify-between > .d-flex.align-center:first-child {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        > div > .d-flex.justify-between > .d-flex.align-center:first-child .text[data-size="20"] {
+            order: 1;
+            text-align: left;
+            flex: 1 1 auto;
+            min-width: 0;
+            font-size: 18px !important;
+            line-height: 1.25;
+        }
+
+        > div > .d-flex.justify-between > .d-flex.align-center:first-child .custom-button.my-5 {
+            order: 2;
+            margin-left: auto;
+            flex: 0 0 auto;
+            white-space: nowrap;
+        }
+
+        > div > .d-flex.justify-between.mt-10.mx-5.form {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+        }
+
+        .slider {
+            width: 100%;
+            justify-content: space-between;
+            gap: 6px;
+        }
+
+        .slider > div {
+            flex: 1 1 0;
+            margin: 0;
+            padding: 8px 6px;
+            justify-content: center;
+            font-size: 13px;
+        }
+
+        > div > .d-flex.justify-between.mt-10.mx-5.form .form-group {
+            width: 100%;
+            margin: 0;
+        }
+
+        > div > .d-flex.justify-between.mt-10.mx-5.form .input-group,
+        > div > .d-flex.justify-between.mt-10.mx-5.form input {
+            width: 100%;
+        }
+
+        .dashboard-card.w-100.mt-10.d-flex.justify-around.align-center {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr;
+            align-items: start;
+            gap: 12px;
+            padding: 16px;
+        }
+
+        .dashboard-card.w-100.mt-10.d-flex.justify-around.align-center > div {
+            width: 100%;
+        }
+
+        .dashboard-card.w-100.mt-10.d-flex.justify-around.align-center > div:nth-child(1) {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .dashboard-card.w-100.mt-10.d-flex.justify-around.align-center > div:nth-child(2) {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .dashboard-card.w-100.mt-10.d-flex.justify-around.align-center > div .text[data-size="30"] {
+            font-size: 46px !important;
+            line-height: 1.05;
+        }
+
+        .dashboard-card.w-100.mt-10.d-flex.justify-around.align-center > *:nth-child(3) {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            width: 100%;
+            display: block !important;
+            margin-top: 16px;
+            margin-bottom: 16px;
+        }
+
+        .dashboard-card.w-100.mt-10.d-flex.justify-around.align-center > *:nth-child(4) {
+            grid-column: 1 / -1;
+            grid-row: 3;
+            width: 100%;
+            display: block !important;
+            margin-top: 0;
+        }
+
+        > div > .d-flex.justify-between.pb-10 {
+            flex-direction: row !important;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        > div > .d-flex.justify-between.pb-10 > .text.pointer {
+            flex: 0 1 auto;
+            min-width: 0;
+            white-space: nowrap;
+        }
+
+        > div > .d-flex.justify-between.pb-10 > .text.pointer:first-child {
+            text-align: left;
+        }
+
+        > div > .d-flex.justify-between.pb-10 > .text.pointer:last-child {
+            text-align: right;
+            margin-left: auto;
+        }
+    }
+}

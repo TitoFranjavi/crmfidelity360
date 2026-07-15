@@ -1,0 +1,1594 @@
+// =============================================
+// CSS MÓVIL ESPECÍFICO PARA COMPARADOR DE LUZ
+// =============================================
+// Este archivo se importa desde app.scss
+
+@media (max-width: 811px) {
+
+    .comparator-mobile {
+        padding: 0 12px;
+
+        // Contenedor principal del formulario
+        .comparator-form-card {
+            padding: 18px 16px;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            background: #fff;
+            margin-bottom: 20px;
+        }
+
+        // Selector de opción (Factura, CUPS, Datos)
+        .option-selector {
+            flex-direction: row; // Ahora horizontal en móvil
+            align-items: center;
+            justify-content: center; // Centrar las opciones
+            gap: 14px;
+            max-width: 520px; // limitar ancho para centrar mejor
+            margin: 0 auto; // centrar el contenedor
+            flex-wrap: wrap; // permitir que las opciones salten a la siguiente línea si hace falta
+            padding: 0 8px; // evitar que toquen los bordes del card
+            margin-bottom: 20px;
+
+            .text {
+                padding: 12px 14px;
+                border: 1px solid map.get($colorsApp, principalOpacidad);
+                border-radius: 10px;
+                background: #fff;
+                color: map.get($colorsApp, principal);
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+                transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+                flex: 0 1 auto; // ancho flexible según contenido
+                min-width: 80px;
+                max-width: 45%;
+                box-sizing: border-box;
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                &:active { transform: translateY(1px); }
+                &.selected {
+                    background: map.get($colorsApp, principal);
+                    color: white;
+                    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+                }
+
+                i {
+                    font-size: 18px;
+                    margin-right: 8px;
+                }
+
+                // pequeño borde entre botones cuando hay espacio (gestiona mejor con gap en el contenedor)
+            }
+
+            .separator {
+                display: none; // Ocultar separadores verticales en móvil
+            }
+        }
+
+        // Sección de arrastrar y soltar (factura)
+        .drag-drop-area {
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px dashed map.get($colorsApp, principalOpacidad);
+            background: map.get($colorsApp, gris-principal);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 10px;
+
+            i {
+                font-size: 40px;
+                color: map.get($colorsApp, principal);
+            }
+
+            p {
+                font-size: 14px;
+                color: map.get($colorsApp, gris-oscuro);
+            }
+        }
+
+        // Preview de factura
+        .bill-preview {
+            margin: 15px 0;
+
+            img,
+            embed {
+                max-height: 400px; // Altura flexible para móvil
+                height: auto;
+            }
+        }
+
+        // CUPS input
+        .cups-input-group {
+            .input-group {
+                width: 100%;
+            }
+        }
+
+        // Selectores de periodo (CUPS, Manual)
+        .period-selector {
+            select {
+                width: 100%;
+                padding: 10px 12px;
+                border-radius: 10px;
+                border: 1px solid map.get($colorsApp, principalOpacidad);
+                background: white;
+                color: map.get($colorsApp, principal);
+                font-weight: 500;
+            }
+        }
+
+        // Grupos de inputs de precios/consumos (P1, P2...)
+        .period-inputs-group {
+            flex-direction: column; // Apilar verticalmente
+            gap: 15px;
+
+            > div {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                p.text {
+                    margin-bottom: 8px;
+                }
+
+                .input-group {
+                    width: 100%;
+                    max-width: 180px; // Limitar el ancho para que no se extienda demasiado
+                }
+            }
+        }
+
+        // Botón Comparar
+        .compare-btn {
+            width: 100%;
+            padding: 14px 0;
+            font-size: 16px !important;
+            font-weight: 700;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        // Nota debajo de la factura
+        .invoice-note {
+            margin-top: 12px;
+            padding: 0 8px;
+
+            p { margin: 4px 0; }
+
+            // mismo color y tamaño consistente
+            p { color: map.get($colorsApp, gris-oscuro); font-size: 13px; }
+            & .small { font-size: 13px; }
+
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        // Mensaje de aviso pequeño (móvil)
+        .comparator-note {
+            margin-top: 6px; /* más cerca de la caja */
+            padding: 0 12px;
+            text-align: center;
+
+            p {
+                margin: 2px 0;
+                color: map.get($colorsApp, gris-oscuro);
+                font-size: 12px;
+                line-height: 1.4;
+            }
+        }
+
+        // Selector Tipo de producto
+        .product-type {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+
+            p.text {
+                margin: 0;
+                font-weight: 700;
+            }
+
+            .product-type-options {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                gap: 16px;
+                padding: 0 10px;
+            }
+
+            .product-type-option {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                padding: 10px 12px;
+                border-radius: 14px;
+                border: 2px solid transparent; /* evita que se mueva al seleccionar */
+                background: #fff;
+                box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+                cursor: pointer;
+                transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+
+                input {
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                    position: absolute;
+                }
+
+                span {
+                    font-size: 14px;
+                    font-weight: 600;
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                }
+
+                &:hover {
+                    transform: translateY(-1px);
+                    box-shadow: 0 8px 18px rgba(0,0,0,0.09);
+                }
+
+                &.selected {
+                    border-color: map.get($colorsApp, principal);
+                    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+
+                    span {
+                        color: map.get($colorsApp, principal);
+                    }
+                }
+            }
+        }
+
+        // Sección CUPS (mejorada para móvil)
+        .cups-section {
+            .cups-field {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                padding: 0 10px;
+
+                p.text {
+                    font-weight: 600;
+                    margin: 0;
+                }
+
+                .input-group {
+                    width: 100% !important;
+                    max-width: none !important;
+
+                    /* Estilo de caja para que quede como el select de tarifa */
+                    background: #fff;
+                    border: 1px solid map.get($colorsApp, principalOpacidad);
+                    border-radius: 12px;
+                    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.04);
+
+                    input,
+                    select {
+                        width: 100%;
+                        padding: 10px 12px;
+                        border: none;
+                        background: transparent;
+                        font-size: 14px;
+                        color: map.get($colorsApp, gris-oscuro);
+
+                        &:focus {
+                            outline: none;
+                            border: none;
+                            box-shadow: none;
+                        }
+                    }
+
+                    select {
+                        appearance: none;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23333' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+                        background-repeat: no-repeat;
+                        background-position: right 12px center;
+                        background-size: 12px 8px;
+                    }
+
+                    &:focus-within {
+                        border-color: map.get($colorsApp, principal);
+                        box-shadow: 0 0 0 2px rgba(0, 95, 255, 0.18);
+                    }
+                }
+            }
+
+            .cups-block {
+                padding: 8px 10px;
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.92);
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+                margin-top: 10px;
+
+                .cups-block-header {
+                    flex-wrap: wrap;
+                    gap: 6px;
+
+                    .cups-period-select {
+                        flex: 1 1 170px;
+                        max-width: 200px;
+                        width: 100%;
+                    }
+                }
+
+                .cups-inputs {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                    gap: 6px;
+                    margin-top: 8px;
+
+                    &.single-column {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .cups-input {
+                        p.text {
+                            margin: 0 0 2px;
+                            font-size: 13px;
+                        }
+
+                        .input-group {
+                            width: 100% !important;
+                            max-width: none !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Sección Datos manuales (móvil)
+        .manual-section {
+            .manual-block {
+                padding: 8px 10px;
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.92);
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+                margin-top: 10px;
+
+                p.text {
+                    margin: 0;
+                    font-weight: 700;
+                }
+
+                .manual-block-header {
+                    flex-wrap: wrap;
+                    gap: 6px;
+
+                    .manual-period-select {
+                        flex: 1 1 170px;
+                        max-width: 200px;
+                        width: 100%;
+                    }
+                }
+
+                .manual-inputs {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                    gap: 6px;
+                    margin-top: 8px;
+
+                    &.single-column {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .manual-input {
+                        p.text {
+                            margin: 0 0 2px;
+                            font-size: 13px;
+                        }
+
+                        .input-group {
+                            width: 100% !important;
+                            max-width: none !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        // --- Vista de resultados --- //
+
+        // Forzar ancho completo del contenedor principal en móvil
+        .w-60 {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        .results-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        // Ajustes para la cabecera de Ofertas (botones + filtros) en móvil
+        .offers-header {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            width: 100% !important;
+            gap: 10px;
+
+            > .d-flex {
+                width: 100% !important;
+            }
+
+            > .d-flex:first-child {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 10px;
+
+                .custom-button {
+                    width: 100% !important;
+                }
+            }
+
+            > .d-flex:nth-child(2) {
+                display: grid !important;
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 10px;
+                width: 100% !important;
+
+                .custom-button {
+                    width: 100% !important;
+                }
+            }
+        }
+
+        .offers-sortbar {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+
+            &.mobile-sort-controls {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 10px;
+
+                .sort-select {
+                    flex: 1;
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        right: 14px;
+                        top: 50%;
+                        width: 8px;
+                        height: 8px;
+                        border-right: 2px solid rgba(map.get($colorsApp, principal), 0.9);
+                        border-bottom: 2px solid rgba(map.get($colorsApp, principal), 0.9);
+                        transform: translateY(-65%) rotate(45deg);
+                        pointer-events: none;
+                    }
+
+                    select {
+                        width: 100%;
+                        padding: 10px 34px 10px 12px;
+                        border-radius: 12px;
+                        border: 1px solid rgba(map.get($colorsApp, principal), 0.3);
+                        background: rgba(255, 255, 255, 0.95);
+                        color: map.get($colorsApp, principal);
+                        font-size: 14px;
+                        appearance: none;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                    }
+                }
+            }
+        }
+
+        // Ajustes específicos para el toolbar de ordenación (search + columnas de orden)
+        .offers-sortbar {
+            .text {
+                white-space: normal;
+            }
+
+            .input-group {
+                width: 100% !important;
+                max-width: 100% !important;
+                border: 1px solid map.get($colorsApp, principal) !important;
+                background: rgba(map.get($colorsApp, principal), 0.1) !important;
+                border-radius: 12px;
+                padding: 8px 10px;
+
+                input {
+                    background: transparent;
+                    padding: 0;
+                }
+            }
+
+            .d-flex.justify-between {
+                flex-direction: column;
+                gap: 10px;
+
+                > .d-flex {
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+                    gap: 10px;
+                    width: 100%;
+                }
+
+                > .d-flex p.text {
+                    min-width: 0;
+                }
+            }
+        }
+
+        /* Filtros de comercializadoras: botones cuadrados en 3 columnas */
+        .offers-header + .mt-20 .d-flex.f-wrap {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .offers-header + .mt-20 .d-flex.f-wrap .custom-button {
+            width: 100% !important;
+            aspect-ratio: 1 / 1;
+            padding: 12px !important;
+            min-height: 0 !important;
+        }
+
+        /* Filtros Tipo de producto - estilo móvil */
+        .offers-header + .mt-20 .d-flex.justify-between {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .offers-header + .mt-20 .d-flex.justify-between > .d-flex {
+            display: contents;
+        }
+
+        .offers-header + .mt-20 .d-flex.justify-between > .d-flex > div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 12px;
+            border: 1px solid rgba(map.get($colorsApp, principal), 0.35);
+            border-radius: 12px;
+            background: rgba(map.get($colorsApp, principal), 0.05);
+            min-height: 45px;
+            cursor: pointer;
+            transition: border-color 0.2s ease, background 0.2s ease;
+
+            /* Ajuste para evitar que el texto se desplace fuera del botón */
+            flex-wrap: wrap;
+        }
+
+        .offers-header + .mt-20 .d-flex.justify-between > .d-flex > div > .text {
+            white-space: normal;
+        }
+
+        .offers-header + .mt-20 .d-flex.justify-between > .d-flex > div:has(input:checked) {
+            border-color: map.get($colorsApp, principal);
+            background: rgba(map.get($colorsApp, principal), 0.16);
+        }
+
+        .offers-header + .mt-20 .d-flex.justify-between input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: map.get($colorsApp, principal);
+        }
+
+        .offers-header + .mt-20 .d-flex.justify-between label {
+            font-size: clamp(11px, 2.5vw, 14px);
+            font-weight: 600;
+            margin: 0;
+            color: map.get($colorsApp, principal);
+
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.2;
+        }
+
+        .offers-header + .mt-20 .d-flex.justify-between input[type="checkbox"] {
+            display: none; /* quitar checkbox visual */
+        }
+
+        /* Filtros de Productos sin comisión / servicios */
+        .offers-header + .mt-20 .d-flex.mt-20 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        /* Layout de lista de ofertas en móvil (parecido a sobremesa) */
+        .dashboard-card {
+            position: relative;
+            overflow: visible !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            gap: 4px !important;
+            padding: 8px 10px !important;
+            width: 100% !important;
+            min-width: 0 !important;
+        }
+
+        .dashboard-card .d-flex.align-center.relPos {
+            flex: 1 1 0;
+            min-width: 0;
+            gap: 2px;
+        }
+
+        .dashboard-card .offer-card-right {
+            display: flex !important;
+            align-items: center !important;
+            gap: 4px !important;
+            flex: 0 0 auto !important;
+        }
+
+        .dashboard-card .offer-card-col {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex: 0 0 auto !important;
+            min-width: 0 !important;
+        }
+
+        /* Fijar anchos en las columnas para que coincidan con el encabezado */
+        .dashboard-card .offer-card-commission-col {
+            flex: 0 0 56px !important;
+            min-width: 56px !important;
+            justify-content: center !important;
+        }
+
+        .dashboard-card .offer-card-total-col {
+            flex: 0 0 50px !important;
+            min-width: 50px !important;
+            justify-content: flex-end !important;
+        }
+
+        .dashboard-card .offer-card-saving-col {
+            flex: 0 0 60px !important;
+            min-width: 60px !important;
+            justify-content: center !important;
+        }
+
+        .dashboard-card .offer-card-actions-col {
+            flex: 0 0 48px !important;
+            min-width: 48px !important;
+            justify-content: flex-end !important;
+        }
+
+        .dashboard-card .offer-card-commission-col,
+        .dashboard-card .offer-card-total-col,
+        .dashboard-card .offer-card-saving-col,
+        .dashboard-card .offer-card-actions-col {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .dashboard-card .offer-card-total {
+            flex: 0 0 56px !important;
+            min-width: 56px !important;
+            text-align: center !important;
+            font-size: 14px !important;
+            line-height: 1.2 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .dashboard-card .offer-card-saving-col {
+            flex: 0 0 56px !important;
+            min-width: 56px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 2px !important;
+            font-size: 14px !important;
+            line-height: 1.2 !important;
+        }
+
+        .dashboard-card .offer-card-saving {
+            width: 100%;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .dashboard-card .offer-card-actions {
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+        }
+
+
+        .dashboard-card .offer-card-saving p {
+            min-width: 24px !important;
+            text-align: right !important;
+        }
+
+        /* Móvil: ocultar porcentaje y mostrar solo el ahorro en verde */
+        .dashboard-card .offer-card-saving p:first-child {
+            display: none !important;
+        }
+
+        .dashboard-card .offer-card-saving p:last-child {
+            font-weight: 600 !important;
+            color: map.get($colorsApp, success) !important;
+        }
+
+        .dashboard-card .offer-card-actions {
+            flex: 0 0 auto !important;
+            gap: 8px !important;
+            justify-content: flex-end !important;
+        }
+
+        /* Oculta PDF en móvil */
+        .dashboard-card .offer-card-actions i.fa-file-pdf {
+            display: none !important;
+        }
+
+        .dashboard-card .offer-card-actions i {
+            width: 24px !important;
+            height: 24px !important;
+            display: grid !important;
+            place-items: center !important;
+            border-radius: 10px !important;
+            background: rgba(map.get($colorsApp, principal), 0.1) !important;
+            color: map.get($colorsApp, principal) !important;
+            cursor: pointer !important;
+            transition: transform 0.12s ease, background 0.12s ease;
+            font-size: 11px !important;
+        }
+
+        .dashboard-card .offer-card-actions {
+            gap: 12px !important;
+        }
+
+        .dashboard-card .offer-card-actions i:hover {
+            background: rgba(map.get($colorsApp, principal), 0.14) !important;
+            transform: translateY(-1px) !important;
+        }
+
+        .dashboard-card .d-flex.align-center.relPos {
+            flex: 1 1 0;
+            min-width: 0;
+            gap: 10px;
+            justify-content: flex-start;
+        }
+
+        .dashboard-card .offer-card-product {
+            flex: 1 1 0;
+            min-width: 80px; /* asegura que el título no desaparezca en pantallas muy pequeñas */
+            gap: 10px;
+            justify-content: flex-start;
+        }
+
+        .dashboard-card .offer-card-row {
+            cursor: pointer;
+            position: relative;
+            padding-left: 18px; /* Evita que el texto choque con el icono */
+            overflow: visible !important;
+            z-index: 1;
+        }
+
+        .dashboard-card .offer-card-row:hover {
+            background: rgba(0, 0, 0, 0.03);
+        }
+
+        .dashboard-card .offer-card-icon {
+            flex: 0 0 34px;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: -25px; /* Icono medio dentro / medio fuera del borde izquierdo */
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.16);
+            background: rgba(map.get($colorsApp, principal), 0.14);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            z-index: 2;
+        }
+
+        .dashboard-card .offer-card-icon-placeholder {
+            width: 100%;
+            height: 100%;
+        }
+
+        .dashboard-card .offer-card-right {
+            display: flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+            flex: 0 0 auto !important;
+            margin-left: auto;
+            padding-left: 0 !important;
+        }
+
+        .dashboard-card .offer-card-commission-col {
+            flex: 0 0 42px !important;
+            min-width: 42px !important;
+        }
+
+        .dashboard-card .offer-card-total-col {
+            flex: 0 0 48px !important;
+            min-width: 48px !important;
+        }
+
+        .dashboard-card .offer-card-saving-col {
+            flex: 0 0 50px !important;
+            min-width: 50px !important;
+        }
+
+        .dashboard-card .offer-card-actions-col {
+            flex: 0 0 34px !important;
+            min-width: 34px !important;
+            justify-content: flex-end !important;
+        }
+
+        .dashboard-card .offer-card-expand-icon {
+            width: 22px;
+            height: 22px;
+            display: grid;
+            place-items: center;
+            border-radius: 999px;
+            background: rgba(map.get($colorsApp, principal), 0.16);
+            color: map.get($colorsApp, principal);
+            font-size: 12px;
+            transition: transform 0.15s ease;
+        }
+
+        .dashboard-card .offer-card-expand-icon.fa-rotate-180 {
+            transform: rotate(180deg);
+        }
+
+        .dashboard-card .offer-card-title {
+            flex: 1 1 0;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding-left: 15px; /* desplaza el título ligeramente hacia la izquierda */
+        }
+
+        .dashboard-card .offer-card-title .text {
+            width: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .dashboard-card .offer-card-title .text.ellipsis {
+            width: 100%;
+        }
+
+        .dashboard-card .offer-card-title input {
+            flex: 1 1 0;
+            min-width: 0;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        /* Encabezado de lista: alinear etiquetas sobre columnas (móvil) */
+        .offer-list-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2px 10px;
+            min-height: 28px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: none;
+        }
+
+        .offer-list-header .product-label,
+        .offer-list-header .offer-card-product,
+        .offer-list-header .offer-card-right,
+        .offer-list-header .offer-card-title,
+        .offer-list-header .offer-card-total,
+        .offer-list-header .offer-card-actions {
+            height: 22px;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+
+        .offer-list-header .product-label,
+        .offer-list-header .offer-card-total,
+        .offer-list-header .offer-card-actions p,
+        .offer-list-header .offer-card-right .text {
+            line-height: 22px;
+            display: inline-flex;
+            align-items: center;
+            height: 22px;
+        }
+
+        .offer-list-header .product-label {
+            font-size: 11px;
+            margin-left: 6px;
+            padding: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .offer-list-header .offer-card-product {
+            flex: 1 1 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0;
+            line-height: 1.1;
+        }
+
+        .offer-list-header .product-label {
+            margin-left: 4px;
+            font-size: 12px;
+            line-height: 1.1;
+            white-space: nowrap;
+            padding: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .offer-list-header .offer-card-right {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex: 0 0 auto;
+        }
+
+        /* Ajustes finos para empatar exactamente con el contenido de las filas */
+        .offer-list-header .offer-card-commission-col { width: 56px; text-align: center; padding-left: 6px; }
+        .offer-list-header .offer-card-total-col { width: 56px; text-align: center; }
+        .offer-list-header .offer-card-saving-col { width: 56px; text-align: center; }
+        .offer-list-header .offer-card-actions-col { width: 48px; text-align: right; }
+
+        .dashboard-card .offer-card-right {
+            margin-left: auto;
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            padding-left: 0 !important;
+        }
+
+        .offer-list-header .header-product {
+            justify-content: flex-start !important;
+            gap: 10px !important;
+        }
+
+        .offer-list-header .product-label {
+            flex: 1 1 0;
+            min-width: 0;
+            max-width: 220px;
+            text-align: left;
+            margin-left: 10px;
+        }
+
+        /* Forzar color azul oscuro en las etiquetas del encabezado */
+        .offer-list-header .text,
+        .offer-list-header .text.opacity-6,
+        .offer-list-header .product-label,
+        .offer-list-header p.text,
+        .offer-list-header .offer-card-total,
+        .offer-list-header .offer-card-saving,
+        .offer-list-header .offer-card-actions {
+            color: map.get($colorsApp, principal) !important;
+            font-weight: 600;
+            opacity: 1 !important;
+        }
+
+        .dashboard-card .d-flex.align-center.relPos .text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-word;
+            flex: 1 1 0;
+            min-width: 0;
+            font-size: 12px !important;
+            line-height: 1.2;
+        }
+
+        /* Alineación: eliminar márgenes que desplazan el nombre hacia la derecha */
+        .dashboard-card .d-flex.align-center.relPos .text.mx-10 {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        /* Offer details: usar ancho responsivo en móvil y anular estilos inline si existen */
+        .offer-details,
+        .offer-details[style],
+        .offer-details[data-v-bcdcffc6],
+        .offer-details[data-v-bcdcffc6][style] {
+            width: calc(100vw - 32px) !important;
+            max-width: 100% !important;
+            height: auto !important;
+            padding: 16px !important;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            gap: 12px;
+            margin: 0 auto !important;
+            box-sizing: border-box !important;
+            overflow: visible !important;
+        }
+
+        .offer-details-header {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .offer-details-title {
+            white-space: normal;
+            word-break: break-word;
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .offer-details-actions-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon-button {
+            width: 34px;
+            height: 34px;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.12);
+            background: rgba(255, 255, 255, 0.9);
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            transition: background 0.15s ease;
+        }
+
+        .icon-button:hover {
+            background: rgba(0, 0, 0, 0.06);
+        }
+
+        .offer-details-savings {
+            width: 100%;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.75);
+        }
+
+        .offer-details-savings-overview {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .offer-details-savings-overview-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .offer-details-savings-overview-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .offer-details-savings-overview-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 10px 8px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.04);
+            width: 100%;
+            max-width: 240px;
+        }
+
+        .offer-details-savings-overview-label {
+            font-size: 11px;
+            opacity: 0.6;
+            text-transform: uppercase;
+        }
+
+        .offer-details-savings-overview-value {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .offer-details-section {
+            width: 100%;
+            margin-top: 16px;
+        }
+
+        .offer-details-section-title {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .offer-details-section-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .offer-details-section-col {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .offer-details-cell {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            padding: 10px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        .offer-details-cell-label {
+            font-size: 10px;
+            opacity: 0.7;
+        }
+
+        .offer-details-cell-value {
+            font-size: 14px;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .offer-details-excedentes-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .offer-details-excedentes {
+            width: 100%;
+            gap: 10px;
+        }
+
+        .excedente-box {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 10px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        .excedente-label {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .excedente-value {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .offer-details-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .offer-details-column {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .offer-details-subtitle {
+            font-size: 12px;
+            font-weight: 700;
+            opacity: 0.75;
+        }
+
+        .offer-details-grid-values {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+        }
+
+        .offer-details-cell {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .offer-details-cell-label {
+            font-size: 10px;
+            opacity: 0.75;
+        }
+
+        .offer-details-cell-value input {
+            padding: 6px 8px;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.12);
+            font-size: 12px;
+            text-align: right;
+        }
+
+        .offer-details-excedentes {
+            width: 100%;
+            gap: 10px;
+        }
+
+        .excedente-box {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .excedente-label {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .excedente-value input {
+            padding: 6px 8px;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.12);
+            font-size: 12px;
+            text-align: right;
+        }
+
+        .offer-details-actions {
+            width: 100%;
+            justify-content: flex-end;
+        }
+
+        .offer-details-actions .icon-button {
+            width: 32px;
+            height: 32px;
+            font-size: 12px;
+            border-radius: 10px;
+        }
+
+
+        .dashboard-card .d-flex.align-center i.fa-file-pdf {
+            display: none;
+        }
+
+
+        .offers-header + .mt-20 .d-flex.mt-20 > div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 12px;
+            border: 1px solid rgba(map.get($colorsApp, principal), 0.35);
+            border-radius: 12px;
+            background: rgba(map.get($colorsApp, principal), 0.05);
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .offers-header + .mt-20 .d-flex.mt-20 > div:has(input:checked) {
+            border-color: map.get($colorsApp, principal);
+            background: rgba(map.get($colorsApp, principal), 0.16);
+        }
+
+        .offers-header + .mt-20 .d-flex.mt-20 input[type="checkbox"] {
+            display: none; /* quitar checkbox visual */
+        }
+
+        // Evitar que anchos fijos estropeen el layout en móvil
+        .w-400-px,
+        .w-300-px,
+        .w-250-px,
+        .w-200-px,
+        .w-160-px,
+        .w-140-px,
+        .w-130-px-min,
+        .w-120-px-max,
+        .w-115-px,
+        .w-100-px,
+        .w-90-px,
+        .w-90-px-max,
+        .w-70-px-min {
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0 !important;
+        }
+
+        .back-btn {
+            width: auto;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 14px !important;
+            i {
+                margin-right: 8px;
+            }
+        }
+
+        .period-toggle-btn {
+            width: auto;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 14px !important;
+        }
+
+        .results-summary {
+            flex-direction: column; // Apilar ítems de resumen
+            gap: 10px;
+            margin-top: 15px;
+            padding: 15px;
+            background: map.get($colorsApp, gris-principal);
+            border-radius: 16px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+
+            p {
+                font-size: 14px;
+
+                span {
+                    font-size: 15px;
+                }
+            }
+        }
+
+        // Botones de editar/guardar en resumen
+        .edit-summary-buttons {
+            position: static;
+            margin-top: 20px;
+            flex-direction: row; // Asegurar que los botones estén en fila
+            width: 100%;
+            justify-content: flex-end;
+
+            button {
+                width: auto; // Que no ocupen todo el ancho
+                padding: 10px 20px;
+                border-radius: 12px;
+            }
+        }
+
+        // Tablas de detalles de costes (Potencia, Energía, etc.)
+        .comparator-table {
+            grid-template-columns: repeat(2, 1fr); // etiquetas + valores
+            gap: 8px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin: 15px 0;
+
+            &.mx-5 {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+
+            p {
+                margin: 0;
+                font-size: 14px;
+                line-height: 1.4;
+            }
+
+            // Cada periodo ocupa 5 elementos en el grid
+            p:nth-child(5n+1) {
+                grid-column: 1;
+                font-weight: 600;
+                color: map.get($colorsApp, gris-oscuro);
+            }
+
+            p:nth-child(5n+2) {
+                grid-column: 2;
+                text-align: right;
+                font-weight: 600;
+            }
+
+            p:nth-child(5n+3) {
+                grid-column: 1 / span 2;
+                display: flex;
+                justify-content: space-between;
+                gap: 8px;
+                color: map.get($colorsApp, gris-oscuro);
+            }
+
+            p:nth-child(5n+4) {
+                grid-column: 1 / span 2;
+                color: map.get($colorsApp, gris-oscuro);
+                opacity: 0.85;
+                font-size: 13px;
+            }
+
+            p:nth-child(5n+5) {
+                grid-column: 2;
+                justify-self: end;
+                font-weight: 600;
+            }
+        }
+
+        .comparator-table-mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .period-row-mobile {
+                padding: 10px;
+                border-radius: 16px;
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                align-items: center;
+                gap: 8px;
+                min-width: 0;
+            }
+
+            .period-row-mobile-left {
+                display: flex;
+                flex: 1 1 0;
+                min-width: 0;
+                gap: 6px;
+                align-items: baseline;
+
+                .period-text {
+                    flex: 1 1 0;
+                    min-width: 0;
+                    white-space: normal;
+                    word-break: break-word;
+                    font-size: 11px;
+                    opacity: 0.85;
+                    color: map.get($colorsApp, gris-oscuro);
+                }
+
+                .period-label {
+                    font-weight: 600;
+                    flex-shrink: 0;
+                }
+            }
+
+            .period-total {
+                flex: 0 0 60px;
+                font-weight: 600;
+                font-size: 12px;
+                color: map.get($colorsApp, gris-oscuro);
+                text-align: right;
+                white-space: nowrap;
+            }
+        }
+
+        // Sección de descuentos
+        .discount-row {
+            flex-direction: column;
+            align-items: flex-end;
+            margin-top: 10px;
+            padding: 0 10px;
+            p {
+                text-align: right;
+                font-size: 14px;
+            }
+        }
+
+        // Otros conceptos
+        .other-concepts-list {
+            .d-flex.justify-between {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+
+                > div {
+                    width: 100%;
+                    justify-content: space-between;
+                }
+
+                p {
+                    text-align: right;
+                    width: auto;
+                }
+            }
+        }
+
+        // Edición de inputs en la vista de resultados
+        .edit-inputs-section {
+            .form-group {
+                margin-bottom: 15px;
+
+                p.text {
+                    margin-bottom: 10px;
+                }
+
+                .input-group {
+                    width: 100%;
+                    max-width: unset;
+
+                    input,
+                    select {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .d-flex[data-gap="15"] {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .d-flex[data-gap="5"] {
+                flex-wrap: wrap; // Permitir que los inputs se envuelvan
+                justify-content: center;
+            }
+        }
+
+        // Selectores de fecha para CUPS
+        .cups-interval-selector {
+            select {
+                width: 100%;
+            }
+        }
+
+        // Botones de guardar/cancelar en edición de inputs
+        .edit-action-buttons {
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+
+            button {
+                width: 100%;
+                padding: 12px 0;
+                border-radius: 12px;
+            }
+        }
+    }
+
+    /* Reset mobile-only filter styling to avoid affecting desktop */
+    .offers-header + .mt-20 .d-flex.justify-between {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 10px;
+    }
+
+    .offers-header + .mt-20 .d-flex.justify-between > .d-flex {
+        display: flex !important;
+    }
+
+    .offers-header + .mt-20 .d-flex.justify-between > .d-flex > div {
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        background: transparent !important;
+        border: none !important;
+    }
+
+    .offers-header + .mt-20 .d-flex.justify-between label {
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+    }
+
+    .offers-header + .mt-20 .d-flex.mt-20 {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 16px;
+    }
+}

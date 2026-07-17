@@ -597,7 +597,6 @@ class OrderController extends Controller
                     '_id'      => null,
                     'statuses' => ['$addToSet' => '$lastStatus.code'],
                     'productTypes' => ['$addToSet' => '$productType'],
-                    'usersIds' => ['$addToSet' => '$usersIds'],
                     'fees' => ['$addToSet' => '$fee'],
                     'marketerProducts' => ['$addToSet' => ['marketer' => '$marketer', 'product' => '$product', 'productSecondary' => '$productSecondary']],
                     'liquidationStatuses' => ['$addToSet' => '$liquidationStatus'],
@@ -613,7 +612,7 @@ class OrderController extends Controller
             'liquidationStatuses' => [],
         ];
 
-        $usersMap = User::whereIn('_id', $filters['usersIds'])
+        $usersMap = User::whereIn('_id', $usersIds)
             ->select('_id', 'firstName', 'lastName')
             ->get()
             ->map(fn($u) => [

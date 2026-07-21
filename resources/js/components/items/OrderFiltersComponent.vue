@@ -34,7 +34,7 @@
         <FilterDropdown v-if="filtersApplied?.marketers?.length > 0" v-model="filtersApplied.products" label-singular="producto" label="Productos" :items="productsFilter" mobile />
 
         <!--Estado de liquidación-->
-        <FilterDropdown v-model="filtersApplied.liquidationStatuses" label-singular="estado de liquidación" label="Estados de liquidación" item-value="code" :items="filters.liquidationStatuses" mobile />
+        <!-- <FilterDropdown v-model="filtersApplied.liquidationStatuses" label-singular="estado de liquidación" label="Estados de liquidación" item-value="code" :items="filters.liquidationStatuses" mobile /> -->
 
         <!--Contratos de subdominios (solo para Zoco)-->
         <FilterDropdown v-if="basicData?.userLogged === '65cb57489c2c285441086a43'" v-model="filtersApplied.subdomains" single label="Contratos de subdominios" item-value="value" :items="subdomainOrdersFilter" mobile />
@@ -81,7 +81,7 @@
             <FilterDropdown v-if="filtersApplied?.marketers?.length > 0" v-model="filtersApplied.products" label-singular="producto" label="Productos" :items="productsFilter" />
 
             <!--Estado de liquidación-->
-            <FilterDropdown v-model="filtersApplied.liquidationStatuses" label-singular="estado de liquidación" label="Estados de liquidación" item-value="code" :items="filters.liquidationStatuses" />
+            <!-- <FilterDropdown v-model="filtersApplied.liquidationStatuses" label-singular="estado de liquidación" label="Estados de liquidación" item-value="code" :items="filters.liquidationStatuses" /> -->
 
             <!--Contratos de subdominios (solo para Zoco)-->
             <FilterDropdown v-if="basicData?.userLogged === '65cb57489c2c285441086a43'" v-model="filtersApplied.subdomains" single label="Contratos de subdominios" item-value="value" :items="subdomainOrdersFilter" />

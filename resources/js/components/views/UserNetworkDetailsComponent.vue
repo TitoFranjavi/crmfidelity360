@@ -625,16 +625,6 @@
                     <doc-component v-for="(doc, docInd) in publicUserDocs" :doc="doc" :docInd="docInd"
                                    :isReadOnly="!isEditing" directory="profile_images" @delDoc="delDoc(docInd)"></doc-component>
                 </div>
-                <div class="form-group" v-if="isEditing">
-                <label>Usuario activo</label>
-
-                <div class="input-group">
-                    <select v-model="userToModify.isActive">
-                        <option :value="true">Activo</option>
-                        <option :value="false">Deshabilitado</option>
-                    </select>
-                </div>
-            </div>
 
                 <div class="separator"></div>
 

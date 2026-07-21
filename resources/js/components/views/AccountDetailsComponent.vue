@@ -79,16 +79,16 @@
 
 
                     <!--Cuenta principal-->
-                    <div v-if="this.basicData.userSubdomain._id !== '68d260e6bc9e8c38f8003df2'" v-bind:class="{ wrong: errors.principalAcc }" class="form-group" v-on:click.stop="">
+                    <!-- <div v-if="this.basicData.userSubdomain._id !== '68d260e6bc9e8c38f8003df2'" v-bind:class="{ wrong: errors.principalAcc }" class="form-group" v-on:click.stop="">
                         <label>Cuenta principal</label>
                         <div class="input-group" v-if="account.principalAcc === ''">
                             <input v-on:click="isPrincAccFocused = true" data-size="12" v-model="searchAccountText"
                                 :disabled="isInputsDisabled" type="text">
                             <i v-if="!isInputsDisabled" class="fa-regular fa-magnifying-glass ml-10 my-auto text"></i>
-                        </div>
+                        </div> -->
 
                         <!--Desplegable con todas las cuentas encontradas-->
-                        <div class="select-div mt-10"
+                        <!-- <div class="select-div mt-10"
                             v-if="!isInputsDisabled && account.principalAcc === '' && filteredAccounts.length > 0 && isPrincAccFocused">
                             <div class="my-5 d-flex pointer d-flex column" v-for="account in filteredAccounts"
                                 v-on:click="selectAccount(account)">
@@ -97,10 +97,10 @@
 
                                 <div class="separator my-5"></div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!--Cuenta ya seleccionada-->
-                        <div v-if="account.principalAcc !== '' && accountSelected" class="d-flex justify-between">
+                        <!-- <div v-if="account.principalAcc !== '' && accountSelected" class="d-flex justify-between">
 
                             <div class="text ml-5 ellipsis" data-size="13">
                                 <i class="fa-solid fa-building mr-10"></i> {{ accountSelected.name }}
@@ -112,7 +112,7 @@
                         </div>
 
                         <span v-if="errors.principalAcc" class="error">{{ errors.principalAcc }}</span>
-                    </div>
+                    </div> -->
 
 
                     <!--telefono y email-->
@@ -166,19 +166,19 @@
 
 
                     <!--Tipo de cuenta y sector-->
-                    <div class="half-space" v-if="this.basicData.userSubdomain._id !== '68d260e6bc9e8c38f8003df2'">
+                    <!-- <div class="half-space" v-if="this.basicData.userSubdomain._id !== '68d260e6bc9e8c38f8003df2'"> -->
                         <!--Tipo de cuenta-->
-                        <custom-select-component @addElement="addSelectType" @delElement="delSelectType"
+                        <!-- <custom-select-component @addElement="addSelectType" @delElement="delSelectType"
                             @selectElement="selectElement" class="mt1" type="acc" title="Tipo de cuenta"
                             :options="sectors" :addedOptions="selectValues.acc" :isInputsDisabled="isInputsDisabled"
-                            :selected="account.accType" :errors="errors"></custom-select-component>
+                            :selected="account.accType" :errors="errors"></custom-select-component> -->
 
                         <!--Sector-->
-                        <custom-select-component @addElement="addSelectType" @delElement="delSelectType"
+                        <!-- <custom-select-component @addElement="addSelectType" @delElement="delSelectType"
                             @selectElement="selectElement" class="mt1" type="sector" title="Sector" :options="sectors"
                             :addedOptions="selectValues.sector" :isInputsDisabled="isInputsDisabled"
                             :selected="account.sector" :errors="errors"></custom-select-component>
-                    </div>
+                    </div> -->
 
 
                     <!--Origen y web-->
@@ -191,7 +191,7 @@
                             :selected="account.origin" :errors="errors"></custom-select-component>-->
 
                         <!--Oportunidad-->
-                        <div v-bind:class="{ wrong: errors.opportunity}" class="form-group">
+                        <!-- <div v-bind:class="{ wrong: errors.opportunity}" class="form-group">
                             <label>Oportunidad</label>
                             <div class="input-group">
                                 <select v-model="account.opportunity" :disabled="isInputsDisabled">
@@ -200,7 +200,7 @@
                                 </select>
                             </div>
                             <span v-if="errors.opportunity" class="error">{{ errors.opportunity }}</span>
-                        </div>
+                        </div> -->
 
 
                         <!--web-->

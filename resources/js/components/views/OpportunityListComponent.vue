@@ -137,9 +137,9 @@
                                     <p class="text mt-3" v-if="basicData.userLogged._id === '65cb57489c2c285441086a43'" @click="importarFacebook" style="cursor: pointer;">
                                         <i class="fas fa-cloud-arrow-down ml-4 mr-10"></i>Importar Facebook
                                     </p>
-                                    <p class="text mt-3" @click="getEmailsToMassive" style="cursor: pointer;">
+                                    <!-- <p class="text mt-3" @click="getEmailsToMassive" style="cursor: pointer;">
                                         <i class="fas fa-paper-plane-top ml-4 mr-10"></i>Enviar correo masivo
-                                    </p>
+                                    </p> -->
                                 </div>
                             </div>
                         </div>

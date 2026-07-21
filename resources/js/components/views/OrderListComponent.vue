@@ -286,9 +286,9 @@
                                 </p>
 
                                 <!--Enviar correo masivo a usuarios seleccionado-->
-                                <p class="text mt-3" @click="getEmailsToMassive">
+                                <!-- <p class="text mt-3" @click="getEmailsToMassive">
                                     <i class="fas fa-paper-plane-top ml-4 mr-10" /> Enviar correo masivo
-                                </p>
+                                </p> -->
                             </div>
                         </div>
                     </div>

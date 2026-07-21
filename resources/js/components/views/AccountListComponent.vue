@@ -241,9 +241,9 @@
                                     <p class="text mt-3" @click="exportAccountsToExcel" style="cursor: pointer;">
                                         <i class="fas fa-file-export ml-4 mr-10"></i>Exportar a Excel
                                     </p>
-                                    <p class="text mt-3" @click="getEmailsToMassive" style="cursor: pointer;">
+                                    <!-- <p class="text mt-3" @click="getEmailsToMassive" style="cursor: pointer;">
                                         <i class="fas fa-paper-plane-top ml-4 mr-10"></i>Enviar correo masivo
-                                    </p>
+                                    </p> -->
                                 </div>
                             </div>
                         </div>

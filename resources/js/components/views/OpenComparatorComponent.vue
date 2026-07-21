@@ -2086,10 +2086,10 @@ export default {
 /* ========================= */
 
 .landing-hero {
-    background: linear-gradient(135deg, #1e3a8a 0%, #1D4ED8 50%, #2563eb 100%);
+    background: linear-gradient(135deg, #009BE0 0%, #5B52E1 52%, #9929DD 100%);
+    box-shadow: 0 20px 60px rgba(153, 41, 221, 0.28);
     border-radius: 24px;
     padding: 52px 40px 44px;
-    box-shadow: 0 20px 60px rgba(29, 78, 216, 0.35);
     position: relative;
     overflow: hidden;
 }
@@ -2143,7 +2143,7 @@ export default {
 }
 
 .landing-highlight {
-    color: #FCD34D;
+    color: #7DDBFF;
     position: relative;
 }
 
@@ -2181,7 +2181,7 @@ export default {
 .landing-stat-number {
     font-size: 22px;
     font-weight: 800;
-    color: #FCD34D;
+    color: #7DDBFF;
     line-height: 1;
 }
 
@@ -2205,15 +2205,15 @@ export default {
     align-items: center;
     justify-content: center;
     padding: 16px 36px;
-    background: #FCD34D;
-    color: #1e3a8a;
+    background: #FFFFFF;
+    color: #072D68;
     font-size: 17px;
     font-weight: 700;
     border: none;
     border-radius: 14px;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 6px 20px rgba(252, 211, 77, 0.4);
+    box-shadow: 0 6px 20px rgba(6, 45, 104, 0.22);
     letter-spacing: 0.1px;
     margin-bottom: 20px;
     width: 100%;
@@ -2221,9 +2221,10 @@ export default {
 }
 
 .landing-cta-btn:hover {
-    background: #FBBF24;
+    background: #EAF8FF;
+    color: #8F27D9;
     transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(252, 211, 77, 0.5);
+    box-shadow: 0 10px 28px rgba(0, 155, 224, 0.30);
 }
 
 .otras-acciones-card--disabled {
@@ -2312,7 +2313,7 @@ export default {
     gap: 8px;
     padding: 24px 16px;
     border-radius: 14px;
-    border: 1px solid #D6E4FF;
+    border: 1px solid #E4D5F5;
     background: #FFFFFF;
     text-decoration: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
@@ -2320,8 +2321,8 @@ export default {
 }
 
 .otras-acciones-card:hover {
-    border-color: #3B82F6;
-    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.12);
+    border-color: #9929DD;
+    box-shadow: 0 4px 16px rgba(153, 41, 221, 0.14);
     transform: translateY(-2px);
 }
 
@@ -2339,8 +2340,8 @@ export default {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: #EFF6FF;
-    color: #1D4ED8;
+    background: #F3E8FC;
+    color: #9929DD;
     margin-bottom: 4px;
     font-size: 22px;
     flex-shrink: 0;

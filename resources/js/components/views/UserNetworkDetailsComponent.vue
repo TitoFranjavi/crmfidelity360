@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <!--Info-->
+                <!--Info--> 
                 <div class="mt-40 mb-50">
 
                     <p class="text" data-size="20" data-weight="700" :data-color="(!userToModify.isActive && (!userToModify.temporalActive || (!!userToModify.temporalActive && new Date(userToModify.temporalActive) < new Date())) && !userToModify.inactivable) ? 'rojo' : 'azul'">Perfil de {{ userToModify.firstName }} {{ userToModify.lastName }}</p>

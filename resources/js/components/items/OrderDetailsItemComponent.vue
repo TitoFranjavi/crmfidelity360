@@ -180,12 +180,12 @@
                             </div>
 
                             <!--Fuente de la venta-->
-                            <custom-select-component  v-if="this.basicData.userSubdomain._id !== '68d260e6bc9e8c38f8003df2'"
+                            <!-- <custom-select-component  v-if="this.basicData.userSubdomain._id !== '68d260e6bc9e8c38f8003df2'"
                                                       @addElement="addElement" @delElement="delElement"
                                                       @selectElement="selectElement" class="mt1" type="orderSources" errorType="source"
                                                       title="Fuente de la venta" :options="sources" :addedOptions="selectValues.orderSources"
                                                       :selected="orderToModify.source" :isInputsDisabled="isInputsDisabled"
-                                                      :errors="orderToModify.errors"></custom-select-component>
+                                                      :errors="orderToModify.errors"></custom-select-component> -->
 
                             <!--CNAE (para Efutura solo)-->
                             <div v-if="this.basicData.userSubdomain._id === '68d260e6bc9e8c38f8003df2'" v-bind:class="{ wrong: orderToModify.errors.CNAE }" class="form-group">

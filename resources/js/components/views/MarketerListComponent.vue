@@ -392,7 +392,7 @@
                                         <template v-if="marketer.products && marketer.products.electricity && marketer.products.electricity.length > 0">
                                             <template class="w-100" v-for="(elec, i) in marketer.products.electricity">
                                                 <template v-for="(electFee, fee) in elec.fees">
-                                                    <div class="form marketersList productSeparator py-5" v-if="marketers[marketers.findIndex(m => m.name === marketer.name)].products.electricity[i] && marketers[marketers.findIndex(m => m.name === marketer.name)].products.electricity[i].fees && marketers[marketers.findIndex(m => m.name === marketer.name)].products.electricity[i].fees[fee] && (!feeSelectedElec || getFee(electFee.id, marketers.findIndex(m => m.name === marketer.name), 'electricity') === feeSelectedElec) && (!typeSelected || electFee['type'][typeSelected === 'Residencial' ? 'residencial' : 'pyme']) && (isEdit || !electFee?.archived)" v-on:dblclick="showProduct(marketer._id, elec._id, electFee.id, 'electricity')">
+                                                    <div class="form marketersList productSeparator py-5" v-if="(!feeSelectedElec || getFee(electFee.id, marketers.findIndex(m => m.name === marketer.name), 'electricity') === feeSelectedElec) && (!typeSelected || electFee?.type?.[typeSelected === 'Residencial' ? 'residencial' : 'pyme']) && (isEdit || !electFee?.archived)" v-on:dblclick="showProduct(marketer._id, elec._id, electFee.id, 'electricity')">
                                                         <div class="d-flex column text" >
                                                             <template v-if="isEdit">
                                                                 <div v-if="fee === 0 && i !== 0" v-on:click.stop="moveProduct(marketer, elec, 'electricity', i, -1)" v-on:dblclick.stop=""><i class="far fa-chevron-up pointer"></i></div>
@@ -443,8 +443,7 @@
                                         <template v-if="marketer.products.gas.length > 0">
                                             <template class="w-100" v-for="(gas, ind) in marketer.products.gas">
                                                 <template v-for="(gasFee, feeInd) in gas.fees">
-                                                    <template v-if="marketers[marketers.findIndex(m => m.name === marketer.name)].products.gas[ind] && marketers[marketers.findIndex(m => m.name === marketer.name)].products.gas[ind].fees && marketers[marketers.findIndex(m => m.name === marketer.name)].products.gas[ind].fees[feeInd] && (!feeSelectedGas || getFee(gasFee.id, marketers.findIndex(m => m.name === marketer.name), 'gas') === feeSelectedGas) && (!typeSelected || marketers[marketers.findIndex(m => m.name === marketer.name)].products.gas[ind].fees[feeInd]['type'][typeSelected === 'Residencial' ? 'residencial' : 'pyme']) && (isEdit || !gasFee?.archived)">
-
+                                                    <template v-if="(!feeSelectedGas || getFee(gasFee.id, marketers.findIndex(m => m.name === marketer.name), 'gas') === feeSelectedGas) && (!typeSelected || gasFee?.type?.[typeSelected === 'Residencial' ? 'residencial' : 'pyme']) && (isEdit || !gasFee?.archived)">
                                                         <div class="marketersList gas productSeparator py-5 form" v-on:dblclick="showProduct(marketer._id, gas._id, gasFee.id, 'gas')">
                                                             <!-- Botones Subida y bajada -->
                                                             <div class="d-flex column text" >
@@ -572,7 +571,7 @@
                                         <template v-if="marketer.products && marketer.products.dual && marketer.products.dual.length > 0">
                                             <template class="w-100" v-for="(dual, i) in marketer.products.dual">
                                                 <template v-for="(dualFee, feeInd) in dual.fees">
-                                                    <div class="form marketersList productSeparator py-12 dual" v-if="marketers[marketers.findIndex(m => m.name === marketer.name)].products.dual[i] && marketers[marketers.findIndex(m => m.name === marketer.name)].products.dual[i].fees && marketers[marketers.findIndex(m => m.name === marketer.name)].products.dual[i].fees[feeInd] /*(!feeSelectedElec || getFee(electFee.id, marketers.findIndex(m => m.name === marketer.name), 'elec') === feeSelectedElec)*/ && (!typeSelected || dualFee['type'][typeSelected === 'Residencial' ? 'residencial' : 'pyme']) && (isEdit || !dualFee?.archived)" v-on:dblclick="showProduct(marketer._id, dual._id, dualFee.id, 'dual')">
+                                                    <div class="form marketersList productSeparator py-12 dual" v-if="(!feeSelectedElec || getFee(dualFee.id, marketers.findIndex(m => m.name === marketer.name), 'dual') === feeSelectedElec) && (!typeSelected || dualFee?.type?.[typeSelected === 'Residencial' ? 'residencial' : 'pyme']) && (isEdit || !dualFee?.archived)" v-on:dblclick="showProduct(marketer._id, dual._id, dualFee.id, 'dual')">
                                                         <div class="d-flex column text" >
                                                             <template v-if="isEdit">
                                                                 <div v-if="feeInd === 0 && i !== 0" v-on:click.stop="moveProduct(marketer, dual, 'dual', i, -1)" v-on:dblclick.stop=""><i class="far fa-chevron-up pointer"></i></div>
@@ -667,7 +666,7 @@
                                         <template v-if="marketer.products && marketer.products.telephony && marketer.products.telephony.length > 0">
                                             <template class="w-100" v-for="(tel, i) in marketer.products.telephony">
                                                 <template v-if="tel" v-for="(telFee, fee) in tel.fees">
-                                                    <div class="form marketersList other productSeparator py-5" v-if="marketers[marketers.findIndex(m => m.name === marketer.name)].products.telephony[i] && marketers[marketers.findIndex(m => m.name === marketer.name)].products.telephony[i].fees && marketers[marketers.findIndex(m => m.name === marketer.name)].products.telephony[i].fees[fee] && /*(!feeSelectedElec || getFee(telFee.id, marketers.findIndex(m => m.name === marketer.name), 'elec') === feeSelectedElec) &&*/ (!typeSelected || telFee['type'][typeSelected === 'Residencial' ? 'residencial' : 'pyme']) && (isEdit || !telFee?.archived)" v-on:dblclick="showProduct(marketer._id, tel._id, telFee.id, 'telephony')">
+                                                    <div class="form marketersList other productSeparator py-5" v-if="(!typeSelected || telFee?.type?.[typeSelected === 'Residencial' ? 'residencial' : 'pyme']) && (isEdit || !telFee?.archived)" v-on:dblclick="showProduct(marketer._id, tel._id, telFee.id, 'telephony')">
                                                         <div class="d-flex column text" >
                                                             <template v-if="isEdit">
                                                                 <div v-if="fee === 0 && i !== 0" v-on:click.stop="moveProduct(marketer, tel, 'telephony', i, -1)" v-on:dblclick.stop=""><i class="far fa-chevron-up pointer"></i></div>
@@ -702,7 +701,7 @@
                                     <template v-if="isShowingProductType('alarm') && seeProducts[marketer._id]">
                                         <template v-if="marketer.products && marketer.products.alarm && marketer.products.alarm.length > 0">
                                             <template class="w-100" v-for="(alarm, i) in marketer.products.alarm">
-                                                <div class="form marketersList alarm productSeparator py-5" v-if="(marketers[marketers.findIndex(m => m.name === marketer.name)].products.alarm[i] && !typeSelected || alarm['type'][typeSelected === 'Residencial' ? 'residencial' : 'pyme']) && (isEdit || !alarm?.archived)" v-on:dblclick="showProduct(marketer._id, alarm._id, null, 'alarm')">
+                                                <div class="form marketersList alarm productSeparator py-5" v-if="(!typeSelected || alarm?.type?.[typeSelected === 'Residencial' ? 'residencial' : 'pyme']) && (isEdit || !alarm?.archived)" v-on:dblclick="showProduct(marketer._id, alarm._id, null, 'alarm')">
                                                     <div class="d-flex column text" >
                                                         <template v-if="isEdit">
                                                             <div v-if="i !== 0" v-on:click.stop="moveProduct(marketer, alarm, 'alarm', i, -1)" v-on:dblclick.stop=""><i class="far fa-chevron-up pointer"></i></div>
@@ -732,7 +731,7 @@
                                         <template v-if="marketer.products && marketer.products.selfSupply && marketer.products.selfSupply.length > 0">
                                             <template class="w-100" v-for="(ss, i) in marketer.products.selfSupply">
                                                 <template v-if="ss" v-for="(ssFee, fee) in ss.fees">
-                                                    <div class="form marketersList other productSeparator py-5" v-if="marketers[marketers.findIndex(m => m.name === marketer.name)].products.selfSupply[i] && marketers[marketers.findIndex(m => m.name === marketer.name)].products.selfSupply[i].fees && marketers[marketers.findIndex(m => m.name === marketer.name)].products.selfSupply[i].fees[fee] && (!typeSelected || ssFee['type'][typeSelected === 'Residencial' ? 'residencial' : 'pyme']) && (isEdit || !ssFee?.archived)" v-on:dblclick="showProduct(marketer._id, ss._id, ssFee.id, 'selfSupply')">
+                                                    <div class="form marketersList other productSeparator py-5" v-if="(!typeSelected || ssFee?.type?.[typeSelected === 'Residencial' ? 'residencial' : 'pyme']) && (isEdit || !ssFee?.archived)" v-on:dblclick="showProduct(marketer._id, ss._id, ssFee.id, 'selfSupply')">
                                                         <div class="d-flex column text" >
                                                             <template v-if="isEdit">
                                                                 <div v-if="fee === 0 && i !== 0" v-on:click.stop="moveProduct(marketer, ss, 'selfSupply', i, -1)" v-on:dblclick.stop=""><i class="far fa-chevron-up pointer"></i></div>

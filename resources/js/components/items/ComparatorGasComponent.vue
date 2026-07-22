@@ -241,6 +241,16 @@
                             </div>
                         </div>
                     </div>
+                    <!--Descuento-->
+                    <div class="d-flex justify-between align-center" data-gap="15">
+                        <p class="text mb-10 ml-30" data-size="16">Descuento:</p>
+                        <div class="d-flex align-center" data-gap="10">
+                            <div class="input-group w-120-px h-30-px">
+                                <input placeholder="%" v-model.trim="prices.fixedDiscount" :disabled="!editingInputs" />
+                            </div>
+                            <p class="text ml-10 w-80-px">%</p>
+                        </div>
+                    </div>
                     <div class="d-flex justify-between" data-gap="15">
                         <p class="text mb-10 ml-20" data-size="16">Término variable:</p>
                         <div class="d-flex align-center" data-gap="10">
@@ -248,6 +258,16 @@
                                 <input placeholder="€ kWh" v-model.trim="prices.variable" :disabled="!editingInputs"/>
                             </div>
                             <p class="text ml-10 w-80-px">€ kWh</p>
+                        </div>
+                    </div>
+                    <!--Descuento-->
+                    <div class="d-flex justify-between align-center" data-gap="15">
+                        <p class="text mb-10 ml-30" data-size="16">Descuento:</p>
+                        <div class="d-flex align-center" data-gap="10">
+                            <div class="input-group w-120-px h-30-px">
+                                <input placeholder="%" v-model.trim="prices.variableDiscount" :disabled="!editingInputs" />
+                            </div>
+                            <p class="text ml-10 w-80-px">%</p>
                         </div>
                     </div>
                     <div class="d-flex justify-between" data-gap="15">
@@ -722,6 +742,8 @@ export default {
             prices: {
                 fixed: null,
                 variable: null,
+                fixedDiscount: null,
+                variableDiscount: null,
             },
             currentTotal: 0,
             billTotalPrice: 0,
@@ -1024,7 +1046,7 @@ export default {
                     fixedPrice = fixedPrice / 365
                     break;
             }
-            this.currentSubtotal = this.calcTotal({ fixed: fixedPrice, variable: this.prices.variable }, true);
+            this.currentSubtotal = this.calcTotal({ fixed: fixedPrice, variable: this.prices.variable, fixedDiscount: this.prices.fixedDiscount, variableDiscount: this.prices.variableDiscount }, true);
 
             if(!this.manualTotal){
                 this.currentTotal = Object.values(this.currentSubtotal).reduce((acc, value) => acc + value, 0);
@@ -1077,10 +1099,18 @@ export default {
         calcTotal(prices, isCurrent) {
             let fixedFee = prices.fees ? this.parseStringToNumber(prices.fees.fixed) : 0;
             let totalFixed = (this.parseStringToNumber(prices.fixed) + fixedFee) * this.totalDays;
+
+            if(isCurrent && prices.fixedDiscount) {
+                totalFixed -= this.parseStringToNumber(prices.fixedDiscount) / 100 * totalFixed;
+            }
+
             let consumption = this.parseStringToNumber(this.consumption);
             let variableFee = prices.fees ? this.parseStringToNumber(prices.fees.variable) / 1000 : 0;
             let totalVariable = (this.parseStringToNumber(prices.variable) + variableFee) * consumption;
-            //console.log(prices.fees)
+
+            if(isCurrent && prices.variableDiscount) {
+                totalVariable -= this.parseStringToNumber(prices.variableDiscount) / 100 * totalVariable;
+            }
 
             //Calculo los conceptos extra
             let otherConcepts = 0;
@@ -1165,6 +1195,7 @@ export default {
                             residencial: feeProduct.type.residencial,
                             pyme: feeProduct.type.pyme,
                             priceType: feeProduct.priceType,
+                            isZocoMarketer: marketer.isZocoMarketer,
                             // indexed: !!feeProduct.indexed
                         };
 
@@ -1489,11 +1520,14 @@ export default {
             this.currentMarketer = data.comercializadora;
             this.cups = data.cups.replace(/ /g, "");
             this.prices.fixed = data.termino_fijo;
+            this.prices.fixedDiscount = data.descuento_termino_fijo;
             this.prices.variable = data.precio_consumo;
+            this.prices.variableDiscount = data.descuento_termino_variable;
             this.consumption = data.consumo;
             this.dates.start = moment(data.periodo_facturacion.fecha_inicio, "DD/MM/YYYY");
             this.dates.end = moment(data.periodo_facturacion.fecha_fin, "DD/MM/YYYY");
             this.taxes.meterDevice = data.otros.alquiler_equipo_medida;
+            this.taxes.iva = data.otros.iva;
             this.billTotalPrice = data.total
 
             //Compruebo si las fechas de facturación concuerdan con como las manejo, si no la cambio un dia antes.

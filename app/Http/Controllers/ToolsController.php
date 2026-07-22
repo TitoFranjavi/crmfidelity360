@@ -873,6 +873,7 @@ class ToolsController extends Controller
                     "content" => "
                     Eres un experto analizador de facturas.
                     Devuelves el precio en las unidades que te pide el usuario perfectamente calculadas, y siempre el precio más reciente que aparece en la factura.
+                    Para los descuentos, devuelve el % de descuento que aplica al término si es que hay alguno.
                     La información que te pide el usuario la devuelves en un JSON en un bloque de código con formato ```json.
                     No añades las unidades ni ningún comentario al json.
                     Obtienes la comunidad autónoma a partir de la provincia de la factura si hay.
@@ -909,13 +910,16 @@ class ToolsController extends Controller
                                 dias_facturacion: (numero de dias de la factura),
                                 otros: {
                                     alquiler_equipo_medida: (precio en €/dia),
+                                    iva: (porcentaje de iva),
                                 },
                                 comercializadora:,
                                 cups: sin espacios,
                                 tarifa: peaje de acceso normalmente RL1, RL2 o RL3, ... Si pone RLPS deja solo RL y el numero (RLPS1 => RL1),
                                 termino_fijo: (precio en € / día),
+                                'descuento_termino_fijo': (descuento en el término fijo en %),
                                 consumo: (en kWh),
                                 precio_consumo: (en € / kWh),
+                                'descuento_termino_variable': (descuento en el término variable en %),
                                 total:
 
                             }

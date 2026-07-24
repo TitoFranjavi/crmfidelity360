@@ -1734,6 +1734,12 @@ class AccountController extends Controller
                     continue;
                 }
 
+                // --- Normalizar código postal ---
+                $zipCode = (string)($row[8] ?? '');
+                if ($zipCode !== '' && strlen($zipCode) === 4 && ctype_digit($zipCode)) {
+                    $zipCode = '0' . $zipCode;
+                }
+
                 // 4) Construcción de la cuenta
                 $account = [
                     "name"            => $row[0] ?? '',
@@ -1752,7 +1758,7 @@ class AccountController extends Controller
                         "province"  => $row[5] ?? '',
                         "locality"  => $row[6] ?? '',
                         "address"   => $row[7] ?? '',
-                        "zipCode"   => isset($row[8]) ? (string)$row[8] : '',
+                        "zipCode"   => $zipCode,
                     ],
                     "customFields"    => [],
                     "orders"          => [],

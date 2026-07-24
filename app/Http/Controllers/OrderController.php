@@ -1434,11 +1434,30 @@ class OrderController extends Controller
                 $createdAtDate = $transferDate->format('Y-m-d H:i:s');
                 $transferDate = $transferDate->format('d/m/y');
 
+                // --- Normalizar código postal ---
+                $zipCode = (string)($row[5] ?? '');
+                if ($zipCode !== '' && strlen($zipCode) === 4 && ctype_digit($zipCode)) {
+                    $zipCode = '0' . $zipCode;
+                }
+
+                // --- Normalizar IBAN ---
+                $iban = (string)($row[6] ?? '');
+                if ($iban !== '') {
+                    $normalized = strtoupper($iban);
+                    $normalized = str_replace('-', ' ', $normalized);
+                    $normalized = preg_replace('/[\s\x{00A0}]+/u', '', $normalized);
+
+                    if (preg_match('/^ES\d{22}$/', $normalized)) {
+                        // IBAN válido en formato "plano" -> lo separamos en grupos de 4
+                        $iban = wordwrap($normalized, 4, ' ', true);
+                    }
+                }
+
                 // ---- Construcción order ----
                 $order = [
                     "name"               => $row[1] ?? '',
                     "direc"              => $row[2] ?? '',
-                    "zip"                => (string)($row[5] ?? ''),
+                    "zip"                => $zipCode,
                     "town"               => $row[3] ?? '',
                     "province"           => $row[4] ?? '',
                     "source"             => "",
@@ -1452,7 +1471,7 @@ class OrderController extends Controller
                     "CUPS"               => $row[11] ?? "",
                     "consumption"        => $row[12] ?? "",
                     "hiredPotency"       => $row[13] ?? "",
-                    "IBAN"               => $row[6] ?? "",
+                    "IBAN"               => $iban,
                     "observations"       => $row[20] ?? "",
                     "docs"               => [],
                     "statuses"           => [["code" => "p", "date" => date('Y-m-d H:i:s'), "creator" => $userLogged['_id'] ?? null]],
